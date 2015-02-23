@@ -5,13 +5,85 @@
 
   <meta charset="UTF-8">
 
-  <title>CodePen - A Pen by  Andreas M. Braendhaugen</title>
+  <title>CodePen - Portfolio 2015</title>
+
+  <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 
 </head>
 
 <body>
 
-  Under construction
+  <html>
+  <body>
+
+    <div class="wrapper">
+      <div id="content">
+        <section id="top" class="gray-bg">
+          <div class="container">
+            <div class="project-text">
+              <h2 class="fadein delay-1 opacity">Andreas M. Brændhaugen</h2>
+              <p class="fadein delay-2 opacity">Norwegian product designer based in San Francisco. Enjoys working on challenging design  problems (and acquiring unusual domain knowledge in the process). Educated at Stanford University (MFA) and the University of Oslo (BA).</p>
+              <small class="fadein delay-3 opacity">You can find me on <a href="http://www.twitter.com/andreasmb target="_blank"">Twitter</a>, <a href="http://www.linkedin.com/in/andreasmb/en" target="_blank">LinkedIn</a>, or <a href="http://www.vimeo.com/andreasmb"  target="_blank">Vimeo</a>.
+            </div>
+            <div class="nav down-arrow"></div>
+          </div>  
+        </section>
+
+      </div>
+    </div>
+
+    <script id="amb-template" type="text/x-handlebars-template">
+      <section id="{{machine-name}}" class="project project-{{index}}">
+        <div class="container">
+          <div class="nav-container nav-container-{{index}}">
+            {{#each numbering}}
+              <div class="nav nav-{{this}}">{{this}}</div>
+            {{/each}}
+          </div>
+          <div class="project-text">
+
+            <!--
+            <div class="nav nav-{{index}}">{{index}}</div>
+            -->
+            <h2>{{name}}</h2>
+            <p>
+              {{{description}}}
+            </p>
+            <small>{{meta}}</small>
+          </div>  
+          {{#each images}}
+            <div class="media-container">
+              <img src="http://assets.ambwork.com/img/{{this}}">
+            </div>
+          {{/each}}
+          {{#if video}}
+            <div class="media-container">
+              {{{video}}}
+              <div class="turn-on-vid"></div>
+            </div>  
+          {{/if}}
+          {{#if video-secondary}}
+            <div class="media-container">
+              {{{video-secondary}}}
+            </div>  
+          {{/if}}
+        </div>  
+      </section>
+    </script>
+
+    <!-- Don't need jQuery for Tabletop, but using it for this example -->
+    <script src="https://dl.dropbox.com/s/b8x30htygozeiot/tabletop.js"></script> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+
+    <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
+
+  </body>
+</html>
+
+  <script src="js/index.js"></script>
 
 </body>
 
