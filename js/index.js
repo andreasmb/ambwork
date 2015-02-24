@@ -14,23 +14,23 @@ function findPositions() {
   var pfHeight = document.getElementById('pf').offsetHeight;
   var pfTop = $('#pf').position().top;
   /*console.log("PULSE", pulseTop, pulseBottom);*/
-  return {'pulseTop': pulseTop, 
+  return {'pulseTop': pulseTop,
           'pulseHeight': pulseHeight,
          	'pfTop': pfTop,
           'pfHeight': pfHeight}
 }
 
 $(document).ready( function() {
-  
-  console.log("RESOLUTION +++++++++", window.devicePixelRatio);
-    
+
+  // console.log("RESOLUTION +++++++++", window.devicePixelRatio);
+
   Tabletop.init( { key: public_spreadsheet_url,
                    callback: showInfo,
                    parseNumbers: true } );
 
 
   function showInfo(data, tabletop) {
-    console.log("DATA", data);
+    // console.log("DATA", data);
     var source   = $("#amb-template").html();
     var template = Handlebars.compile(source);
 
@@ -47,7 +47,7 @@ $(document).ready( function() {
 			/*console.log("PROJECT", project);*/
       $("#content").append(html);
     });
-    
+
     wistiaEmbedPulse1 = Wistia.embed("g7d5793wsw", {videoFoam: true, volume: 0});
     wistiaEmbedPulse2 = Wistia.embed("alntz3qe1c", {videoFoam: true});
     wistiaEmbedPF = Wistia.embed("7b84ogfdy9", {videoFoam: true, volume: 0, time: 10});
@@ -57,12 +57,12 @@ $(document).ready( function() {
     wistiaEmbedPF.ready(function() {
       	wistiaEmbedPF.volume(0);
       })
-    
+
     var PFvideoVol = false;
-    
+
     $(".turn-on-vid").on( "click", function() {
-      console.log(PFvideoVol);
-      console.log("PF VOLUME", wistiaEmbedPF.volume());
+      // console.log(PFvideoVol);
+      // console.log("PF VOLUME", wistiaEmbedPF.volume());
       if (PFvideoVol === false) {
         wistiaEmbedPF.volume(.4);
         wistiaEmbedPF.time(0);
@@ -73,9 +73,9 @@ $(document).ready( function() {
         $('#pf').find('.turn-on-vid').toggleClass('volume-on');
         }
       PFvideoVol = !PFvideoVol
-        
+
       });
-      
+
 
 
     $(document).scroll(function(){
@@ -84,7 +84,7 @@ $(document).ready( function() {
       var pulseTop = $('#pulse').position().top;
       var pfHeight = document.getElementById('pf').offsetHeight;
       var pfTop = $('#pf').position().top;
-      
+
       var currentPos = $(this).scrollTop();
       /*console.log("CURRENTPOS", currentPos, pfTop, pfTop+pfHeight )*/
       /*console.log("CURRENTPOS PULSE", currentPos, pulseTop, pulseTop+pulseHeight )*/
@@ -97,27 +97,27 @@ $(document).ready( function() {
       else {
         wistiaEmbedPulse1.pause();
       }
-      
+
       if (currentPos > pfTop && currentPos < pfTop+pfHeight) {
         wistiaEmbedPF.play();
-        console.log("\n\nPF Vid", wistiaEmbedPF.state());
+        // console.log("\n\nPF Vid", wistiaEmbedPF.state());
       }
       else {
         wistiaEmbedPF.pause();
-        console.log("\n\nPF Vid", wistiaEmbedPF.state());
+        // console.log("\n\nPF Vid", wistiaEmbedPF.state());
       }
-      
+
     })
 
-    
+
   }
-  
+
 
   var screenHeight = $(window).height();
   $('#top, #top .container').css("min-height", screenHeight);
   $('#top').find('.fadein').removeClass('opacity');
 
-  
+
 });
 
 /*http://www.ambwork.com/2009_ambwork/files/*/
