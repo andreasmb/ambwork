@@ -5,7 +5,7 @@ columnWidth = 470px
 textSpacing = 20px
 gutter = 75px
 numberSize = 12px
-navStart = 152px
+navStart = 153.5px
 navSize = 30px
 navSizePadding = 40px
 
