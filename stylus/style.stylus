@@ -16,19 +16,20 @@ borderColor = #E4E4E4
 
 
 baseUrl = 'http://assets.ambwork.com/'
+fontBaseUrl = 'http://assets.ambwork.com/fonts/'
 
 @font-face
   font-family: 'akkurat-bold'
-  src: url(baseUrl + 'fonts/akkurat-bold.ttf')
+  src: url(fontBaseUrl + 'akkurat-bold.ttf')
   font-weight: bold
 
 @font-face
   font-family: 'akkurat-light'
-  src: url(baseUrl + 'fonts/akkurat-light.ttf')
+  src: url(fontBaseUrl + 'akkurat-light.ttf')
 
 @font-face
   font-family: 'akkurat-normal'
-  src: url(baseUrl + 'fonts/akkurat-normal.ttf')
+  src: url(fontBaseUrl + 'akkurat-normal.ttf')
   font-weight: normal
 
 html
