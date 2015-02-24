@@ -5,14 +5,14 @@ columnWidth = 470px
 textSpacing = 20px
 gutter = 75px
 numberSize = 12px
-navStart = 153px
+navStart = 152px
 navSize = 30px
 navSizePadding = 40px
 
 /*Colors*/
 darkGray = #97999B
 darkerGray = #666768
-borderColor = #E4E4E4 
+borderColor = #E4E4E4
 
 
 baseUrl = 'http://assets.ambwork.com/'
@@ -55,7 +55,7 @@ a
 small
   font-size: .8em
   line-height: 1.1
-  
+
   font-family: akkurat-normal, sans-serif
 
 #content
@@ -78,7 +78,7 @@ section
     transform: translateY(-50%)
 
 
-.container  
+.container
   position: relative
   max-width: columnMaxWidth
   margin: 0 auto
@@ -108,7 +108,7 @@ section
   border: 1px solid borderColor
   border-radius: 3px
   text-align: center
-  padding-top: 2px
+  padding-top: 4px
   margin-top: 10px
   &.down-arrow
     border: 0
@@ -137,7 +137,7 @@ for num in (1..10)
 .turn-on-vid
   display: none
 
-#pf 
+#pf
   .turn-on-vid
     display: block
     position: absolute
@@ -207,4 +207,4 @@ for num in (1..10)
     font-size: 200%
   .nav.down-arrow
     background-size: (navSize + 10)px
-  
+
