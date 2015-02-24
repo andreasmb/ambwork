@@ -1,16 +1,16 @@
 /*Colors*/
 @font-face {
   font-family: 'akkurat-bold';
-  src: url("http://assets.ambwork.com/fonts/akkurat-bold.ttf");
+  src: url("http://info.ambwork.com/fonts/akkurat-bold.ttf");
   font-weight: bold;
 }
 @font-face {
   font-family: 'akkurat-light';
-  src: url("http://assets.ambwork.com/fonts/akkurat-light.ttf");
+  src: url("http://info.ambwork.com/fonts/akkurat-light.ttf");
 }
 @font-face {
   font-family: 'akkurat-normal';
-  src: url("http://assets.ambwork.com/fonts/akkurat-normal.ttf");
+  src: url("http://info.ambwork.com/fonts/akkurat-normal.ttf");
   font-weight: normal;
 }
 html {

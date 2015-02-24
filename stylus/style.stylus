@@ -16,7 +16,7 @@ borderColor = #E4E4E4
 
 
 baseUrl = 'http://assets.ambwork.com/'
-fontBaseUrl = 'http://assets.ambwork.com/fonts/'
+fontBaseUrl = 'http://info.ambwork.com/fonts/'
 
 @font-face
   font-family: 'akkurat-bold'
