@@ -73,7 +73,7 @@ section
 
 #top
   padding: 1px gutter
-  transition: all .5s
+  transition: all .25s
 
   .project-text
     padding: 0 0 sectionSpacing*2 0
