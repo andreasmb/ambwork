@@ -1,3 +1,5 @@
+@import 'nib'
+
 columnMaxWidth = 1000px
 sectionSpacing = 100px
 mediaSpacing = 50px
@@ -67,10 +69,11 @@ section
 
   &.gray-bg
     background: #eeeeee
-    transition: all .5s
+
 
 #top
   padding: 1px gutter
+  transition: all .5s
 
   .project-text
     padding: 0 0 sectionSpacing*2 0

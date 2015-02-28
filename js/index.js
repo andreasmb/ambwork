@@ -24,6 +24,7 @@ $(document).ready( function() {
 
   var screenHeight = $(window).height();
   $('#top, #top .container').css("min-height", screenHeight);
+  $('#top').addClass("gray-bg");
   $('#top').find('.fadein').removeClass('opacity');
 
   // console.log("RESOLUTION +++++++++", window.devicePixelRatio);
