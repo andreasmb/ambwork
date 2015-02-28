@@ -22,6 +22,10 @@ function findPositions() {
 
 $(document).ready( function() {
 
+  var screenHeight = $(window).height();
+  $('#top, #top .container').css("min-height", screenHeight);
+  $('#top').find('.fadein').removeClass('opacity');
+
   // console.log("RESOLUTION +++++++++", window.devicePixelRatio);
 
   Tabletop.init( { key: public_spreadsheet_url,
@@ -111,11 +115,6 @@ $(document).ready( function() {
 
 
   }
-
-
-  var screenHeight = $(window).height();
-  $('#top, #top .container').css("min-height", screenHeight);
-  $('#top').find('.fadein').removeClass('opacity');
 
 
 });
