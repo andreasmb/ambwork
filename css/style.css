@@ -60,6 +60,10 @@ section.gray-bg {
   -o-transition: all 0.25s;
   -ms-transition: all 0.25s;
   transition: all 0.25s;
+  min-height: 100vh;
+}
+#top .container {
+  min-height: 100vh;
 }
 #top .project-text {
   padding: 0 0 200px 0;
