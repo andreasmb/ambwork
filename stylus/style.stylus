@@ -61,8 +61,9 @@ small
 
   font-family: akkurat-normal, sans-serif
 
-#content
-  padding-bottom: 200px
+.byline
+  padding: 100px 0 200px 0
+  text-align: center
 
 section
   padding: sectionSpacing gutter sectionSpacing gutter
