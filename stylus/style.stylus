@@ -103,6 +103,8 @@ section
 .media-container
   position: relative
   padding-bottom: mediaSpacing
+  div[class^='wistia_branding']
+    border: 2px solid blue !important
 
 .nav-container
   position: absolute
@@ -214,4 +216,5 @@ for num in (1..10)
     font-size: 200%
   .nav.down-arrow
     background-size: (navSize + 10)px
+
 
