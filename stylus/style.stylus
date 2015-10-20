@@ -103,8 +103,8 @@ section
 .media-container
   position: relative
   padding-bottom: mediaSpacing
-  div[class^='wistia_branding']
-    border: 2px solid blue !important
+  div[id^='wistia_branding']
+    display: none !important
 
 .nav-container
   position: absolute

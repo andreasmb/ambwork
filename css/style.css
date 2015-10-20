@@ -103,8 +103,8 @@ section.gray-bg {
   position: relative;
   padding-bottom: 50px;
 }
-.media-container div[class^='wistia_branding'] {
-  border: 2px solid #00f !important;
+.media-container div[id^='wistia_branding'] {
+  display: none !important;
 }
 .nav-container {
   position: absolute;
