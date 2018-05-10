@@ -7,7 +7,7 @@
 		"uuidString": "A3E16CEB-168F-4F67-A342-7ED382D26071"
 		}
 	],
-"creatorBuild": "26261",
+"creatorBuild": "26680",
 "files": {
 	"\/.gitignore": {
 		"cB": 0,
@@ -71,6 +71,16 @@
 		"sC": 3,
 		"tS": 0
 		},
+	"\/js\/tabletop.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/tabletop-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"\/license.txt": {
 		"cB": 0,
 		"ft": 8192,
@@ -114,7 +124,8 @@
 	"creationDate": 539478673,
 	"displayValue": "ambwork",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "meme-maroney"
+	"iconImageName": "meme-maroney",
+	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -122,6 +133,7 @@
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
 	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
+	"autoprefixerEnableIEGrid": 0,
 	"babelAuxiliaryCommentAfter": "",
 	"babelAuxiliaryCommentBefore": "",
 	"babelConfigFileHandlingType": 0,
@@ -1916,6 +1928,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
+		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {
