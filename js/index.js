@@ -20,11 +20,82 @@ function findPositions() {
           'pfHeight': pfHeight}
 }
 
+
+
+$( document ).ready(function() {
+
+  // $("#app").hide();
+  $("#name").hide();
+  $("#name-desc").hide();
+  $("#kontakt").hide();
+
+  var app = new Vue({
+      el: '#app',
+      data: {
+          items: []
+      },
+      mounted: function(){
+         this.loadItems();
+      },
+      methods: {
+          loadItems: function(){
+
+              // Init variables
+              var self = this
+
+              var app_id = "appKtQz6NKGGJRb8b";
+              var app_key = "keym8ucVtuq8SCzZF";
+
+// appKtQz6NKGGJRb8b
+
+
+              this.items = []
+              axios.get(
+                  "https://api.airtable.com/v0/"+app_id+"/Menu?view=Grid%20view",
+                  {
+                      headers: { Authorization: "Bearer "+app_key }
+                  }
+              ).then(function(response){
+                  self.items = response.data.records
+
+              }).catch(function(error){
+                  console.log(error)
+              })
+          }
+      }
+  })
+
+  console.log(app, 'testing testing');
+
+
+  // $('#name').fadeIn("slow");
+  // $('#name-desc').delay(500).fadeIn("slow");
+  // $('#app').delay(1500).fadeIn("slow");
+  // $('#kontakt ').delay(1600).fadeIn("slow");
+
+  // Convert markdown to html
+
+  setTimeout(function(){
+
+    $( ".markdown" ).each(function(index) {
+      var converter = new showdown.Converter();
+      var md = $(this).text();
+      var html = converter.makeHtml(md);
+      $(this).html(html);
+    });
+
+  }, 1500);
+
+
+});
+
 $(document).ready( function() {
 
+    console.log(Wistia.api("wistia_g7d5793wsw"));
+
   var screenHeight = $(window).height();
-  $('#top').addClass("gray-bg");
-  $('#top').find('.fadein').removeClass('opacity');
+  // $('#top').addClass("gray-bg");
+  // $('#top').find('.fadein').removeClass('opacity');
 
   // console.log("RESOLUTION +++++++++", window.devicePixelRatio);
 

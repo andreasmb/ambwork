@@ -8,73 +8,130 @@
     <title>Andreas M. Braendhaugen | Portfolio</title>
 
     <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.6/tailwind.min.css'>
 
   </head>
 
 
   <body>
 
-    <div class="wrapper">
-      <div id="content">
-        <section id="top" class="gray-bg">
-          <div class="container">
-            <div class="project-text">
-              <h2 class="fadein delay-1 opacity">Andreas M. Brændhaugen</h2>
-              <p class="fadein delay-2 opacity">Norwegian product designer based in San Francisco. Enjoys working on challenging design  problems (and acquiring unusual domain knowledge in the process). Educated at Stanford University (MFA) and the University of Oslo (BA).</p>
-              <small class="fadein delay-3 opacity">You can find me on <a href="http://www.twitter.com/andreasmb" target="_blank">Twitter</a>, <a href="http://www.linkedin.com/in/andreasmb/en" target="_blank">LinkedIn</a>, or <a href="http://www.vimeo.com/andreasmb"  target="_blank">Vimeo</a>.</small>
-            </div>
-            <div class="nav down-arrow"></div>
-          </div>
-        </section>
-      </div>
-      <div class="byline">
-        <small>© 2018 Andreas M. Brændhaugen</small>
-      </div>
-    </div>
+<!-- START NEW CONTENT -->
 
-    <script id="amb-template" type="text/x-handlebars-template">
-      <section id="{{machine-name}}" class="project project-{{index}}">
+  <!-- partial:index.partial.html -->
+
+  <div class="wrapper">
+    <div id="content">
+      <section id="top" class="gray-bg">
         <div class="container">
-          <div class="nav-container nav-container-{{index}}">
-            {{#each numbering}}
-              <div class="nav nav-{{this}}">{{this}}</div>
-            {{/each}}
-          </div>
           <div class="project-text">
-            <!--
-            <div class="nav nav-{{index}}">{{index}}</div>
-            -->
-            <h2>{{name}}</h2>
-            <p>
-              {{{description}}}
-            </p>
-            <small>{{{meta}}}</small>
+            <h2 class="fadein delay-1">Andreas M. Brændhaugen</h2>
+            <p class="fadein delay-2">Norwegian product designer based in San Francisco. Enjoys working on challenging design  problems (and acquiring unusual domain knowledge in the process). Educated at Stanford University (MFA) and the University of Oslo (BA).</p>
+            <small class="fadein delay-3">You can find me on <a href="http://www.twitter.com/andreasmb" target="_blank">Twitter</a>, <a href="http://www.linkedin.com/in/andreasmb/en" target="_blank">LinkedIn</a>, or <a href="http://www.vimeo.com/andreasmb"  target="_blank">Vimeo</a>.</small>
           </div>
-          {{#each images}}
-            <div class="media-container">
-              <img src="http://assets.ambwork.com/img/{{this}}">
-            </div>
-          {{/each}}
-          {{#if video}}
-            <div class="media-container">
-              {{{video}}}
-              <div class="turn-on-vid"></div>
-            </div>
-          {{/if}}
-          {{#if video-secondary}}
-            <div class="media-container">
-              {{{video-secondary}}}
-            </div>
-          {{/if}}
+          <div class="nav down-arrow"></div>
         </div>
       </section>
-    </script>
+
+
+      <div id="app">
+        <div v-for="item in items">
+
+            <!-- AMBWORK markup -->
+            <section id="##machine-name##" class="project project-##index##">
+              <div class="container">
+                <!-- <div class="nav-container nav-container-##index##">
+                  ###each numbering##
+                    <div class="nav nav-##this##">##this##</div>
+                  ##/each##
+                </div> -->
+                <div class="project-text">
+                  <!--
+                  <div class="nav nav-##index##">##index##</div>
+                  -->
+                  <h2>{{ item['fields']['prosjekt-navn'] }}</h2>
+                  <p class="">
+                    {{ item['fields']['min-beskrivelse'] }}
+                  </p>
+                  <small class="markdown">{{ item['fields']['meta'] }}</small>
+                </div>
+
+
+                <div v-for="image in item['fields']['photo']" class="media-container">
+                    <img :src="image['thumbnails']['large']['url']">
+                </div>
+
+                <!-- VIDEOS -->
+
+                <div v-if="item['fields']['embed-id'] == 'pulse'" class="media-container">
+
+
+                  <!-- <video controls width="100%">
+
+                    <source src="pulse-video.mp4"
+                            type="video/mp4">
+
+                    Sorry, your browser doesn't support embedded videos.
+                </video> -->
+
+
+
+                  <div class="wistia_responsive_padding" style="padding:56.25% 0 28px 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/g7d5793wsw?videoFoam=true" title="Pulse Promotional Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
+
+                  <div class="wistia_responsive_padding" style="padding:64.17% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/alntz3qe1c?videoFoam=true" title="Steve Jobs Highlights Pulse at WWDC 2010 Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
+
+
+
+                  <!-- <div class="wistia_responsive_padding" style="padding:56.25% 0 28px 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/g7d5793wsw?videoFoam=true" title="Pulse Promotional Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
+                  <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+
+                  <div class="wistia_responsive_padding" style="padding:64.17% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/alntz3qe1c?videoFoam=true" title="Steve Jobs Highlights Pulse at WWDC 2010 Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
+                  <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+ -->
+
+                </div>
+
+                <div v-if="item['fields']['embed-id'] == 'practice-fusion'" class="media-container">
+
+                  <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/7b84ogfdy9?videoFoam=true" title="Practice Fusion Presentation Demo Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
+                <!--
+<script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+                    <script src="https://fast.wistia.com/embed/medias/7b84ogfdy9.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_7b84ogfdy9 videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/7b84ogfdy9/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div></div></div> -->
+
+                </div>
+
+              </div>
+            </section>
+
+              <!-- END OF AMBWORK MARKUP -->
+          </div>
+
+        </div><!--app-->
+
+
+
+    </div>
+    <div class="byline">
+      <small>© 2021 Andreas M. Brændhaugen</small>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+    <!-- END OF NEW CONTENT -->
+
+
 
     <script src="js/tabletop-min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 
     <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
+    <!-- <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script> -->
 
     <script src="js/index.js"></script>
     <script>
@@ -88,6 +145,20 @@
 
     </script>
 
+    <!-- WISTIA TEST -->
+
+    <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+
+    <!-- // Airtable depencies -->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+
+    <!-- Markdown conversion -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js'></script>
+
+
+
+
   </body>
-  
+
 </html>
