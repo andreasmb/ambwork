@@ -140,7 +140,6 @@ section
   margin-top: 10px
   &.down-arrow
     border: 0
-    opacity: .3
     position: absolute
     bottom: sectionSpacing
     left: 0
@@ -166,17 +165,17 @@ for num in (1..10)
 
 .fadein
   transition-duration: .8s
+  opacity: 0
   transition-property: opacity, transform
-  opacity: 1
   transform: translate3d(0, 0, 0)
   transform: translateY(0)
 
 .delay-1
-  transition-delay: .4s
+  transition-delay: .2s
 .delay-2
-  transition-delay: .7s
+  transition-delay: .5s
 .delay-3
-  transition-delay: 1s
+  transition-delay: .7s
 
 .opacity
   opacity: 0

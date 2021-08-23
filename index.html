@@ -22,7 +22,7 @@
 
   <div class="wrapper">
     <div id="content">
-      <section id="top" class="gray-bg">
+      <section id="top" class="gray-bg fadein delay-1">
         <div class="project-container">
           <div class="project-text sm:max-w-full md:max-w-lg">
 
@@ -30,12 +30,12 @@
             <p class="fadein delay-2">Norwegian product designer based in San Francisco. Enjoys working on challenging design  problems (and acquiring unusual domain knowledge in the process). Educated at Stanford University (MFA) and the University of Oslo (BA).</p>
             <small class="fadein delay-3">You can find me on <a href="http://www.twitter.com/andreasmb" target="_blank">Twitter</a>, <a href="http://www.linkedin.com/in/andreasmb/en" target="_blank">LinkedIn</a>, or <a href="http://www.vimeo.com/andreasmb"  target="_blank">Vimeo</a>.</small>
           </div>
-          <div class="nav down-arrow"></div>
+          <div class="fadein delay-3 nav down-arrow"></div>
         </div>
       </section>
 
 
-      <div id="app">
+      <div id="app" class="fadein delay-3">
         <section class="loading">
           <div class="project-container">
             <svg class="animate-spin mr-3 h-5 w-5 text-black inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@
 
         <div class="toc-wrapper sticky top-0 w-full mx-auto lg:hidden xl:block">
 
-          <div id="toc" class="absolute -ml-20 -mt-2 transition-all duration-300">
+          <div id="toc" class="absolute -ml-20 -mt-2 transition-all duration-150">
             <a v-for="(item, index) in items" :href="'#'+index" class="p-2 mb-4 block rounded-full h-10 w-10 text-center transition-all duration-300">{{ index+1 }}</a>
           </div>
         </div>

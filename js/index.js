@@ -26,6 +26,7 @@ $( document ).ready(function() {
               ).then(function(response){
                   self.items = response.data.records;
                   $( ".loading" ).remove();
+                  $('.fadein').addClass("opacity-100");
 
               }).catch(function(error){
                   console.log(error)
@@ -72,8 +73,6 @@ $( document ).ready(function() {
   // Convert markdown to html
 
   setTimeout(function(){
-
-    $('#name').fadeIn("slow");
 
     $( ".markdown" ).each(function(index) {
       var converter = new showdown.Converter();
