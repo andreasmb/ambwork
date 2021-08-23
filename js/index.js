@@ -24,9 +24,7 @@ $( document ).ready(function() {
                       headers: { Authorization: "Bearer "+app_key }
                   }
               ).then(function(response){
-                  self.items = response.data.records
-                  console.log(self.items, "SELF ITEMS")
-                  // findProjectTop();
+                  self.items = response.data.records;
                   $( ".loading" ).remove();
 
               }).catch(function(error){
