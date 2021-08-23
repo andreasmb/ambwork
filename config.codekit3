@@ -43,6 +43,17 @@
 		"oAP": "/css/style.css.map",
 		"oF": 0
 		},
+	"/favicon.png": {
+		"ft": 32768,
+		"iS": 844,
+		"oA": 0,
+		"oAP": "/favicon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/fonts/akkurat-bold.ttf": {
 		"cB": 0,
 		"ft": 8192,
