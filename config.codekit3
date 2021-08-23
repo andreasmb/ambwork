@@ -17,6 +17,14 @@
 		"oAP": "/.gitignore",
 		"oF": 0
 		},
+	"/.htaccess": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/.htaccess",
+		"oF": 0
+		},
 	"/CNAME": {
 		"cB": 0,
 		"ft": 8192,
@@ -77,6 +85,17 @@
 		"oA": 0,
 		"oAP": "/fonts/akkurat-normal.ttf",
 		"oF": 0
+		},
+	"/imgs/down-arrow.png": {
+		"ft": 32768,
+		"iS": 1098,
+		"oA": 0,
+		"oAP": "/imgs/down-arrow.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
 		},
 	"/index.html": {
 		"cB": 0,
