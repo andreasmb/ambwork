@@ -135,14 +135,6 @@
 		"oAP": "/placeholder/index.html",
 		"oF": 0
 		},
-	"/pulse-video.mp4": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/pulse-video.mp4",
-		"oF": 0
-		},
 	"/README.txt": {
 		"cB": 0,
 		"ft": 8192,
@@ -612,7 +604,7 @@
 	"environmentVariablesString": "NODE_ENV:::production",
 	"esLintConfigFileHandlingType": 0,
 	"esLintECMAVersion": 7,
-	"esLintEnvironmentsMask": 1,
+	"esLintEnvironmentsMask": 8193,
 	"esLintRules": {
 		"accessor-pairs": {
 			"active": 0,

@@ -22,8 +22,9 @@
   <div class="wrapper">
     <div id="content">
       <section id="top" class="gray-bg">
-        <div class="container">
+        <div class="project-container">
           <div class="project-text">
+
             <h2 class="fadein delay-1">Andreas M. Brændhaugen</h2>
             <p class="fadein delay-2">Norwegian product designer based in San Francisco. Enjoys working on challenging design  problems (and acquiring unusual domain knowledge in the process). Educated at Stanford University (MFA) and the University of Oslo (BA).</p>
             <small class="fadein delay-3">You can find me on <a href="http://www.twitter.com/andreasmb" target="_blank">Twitter</a>, <a href="http://www.linkedin.com/in/andreasmb/en" target="_blank">LinkedIn</a>, or <a href="http://www.vimeo.com/andreasmb"  target="_blank">Vimeo</a>.</small>
@@ -34,11 +35,30 @@
 
 
       <div id="app">
-        <div v-for="item in items">
+        <section class="loading">
+          <div class="project-container">
+            <svg class="animate-spin mr-3 h-5 w-5 text-black inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span class="inline-block">Loading projects...</span>
+          </div>
+        </section>
+
+        <div class="toc-wrapper sticky top-0 w-full mx-auto lg:hidden xl:block">
+
+          <div id="toc" class="absolute -ml-20 -mt-2 transition-all duration-300">
+            <a v-for="(item, index) in items" :href="'#'+index" class="p-2 mb-4 block rounded-full h-10 w-10 text-center transition-all duration-300">{{ index+1 }}</a>
+          </div>
+        </div>
+
+        <div v-for="(item, index) in items">
+
+          <!-- opacity-0 transition duration-500 -->
 
             <!-- AMBWORK markup -->
-            <section id="##machine-name##" class="project project-##index##">
-              <div class="container">
+            <section :id="index" class="project">
+              <div class="project-container">
                 <!-- <div class="nav-container nav-container-##index##">
                   ###each numbering##
                     <div class="nav nav-##this##">##this##</div>
@@ -64,38 +84,15 @@
 
                 <div v-if="item['fields']['embed-id'] == 'pulse'" class="media-container">
 
-
-                  <!-- <video controls width="100%">
-
-                    <source src="pulse-video.mp4"
-                            type="video/mp4">
-
-                    Sorry, your browser doesn't support embedded videos.
-                </video> -->
-
-
-
                   <div class="wistia_responsive_padding" style="padding:56.25% 0 28px 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/g7d5793wsw?videoFoam=true" title="Pulse Promotional Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 
                   <div class="wistia_responsive_padding" style="padding:64.17% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/alntz3qe1c?videoFoam=true" title="Steve Jobs Highlights Pulse at WWDC 2010 Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
-
-
-
-                  <!-- <div class="wistia_responsive_padding" style="padding:56.25% 0 28px 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/g7d5793wsw?videoFoam=true" title="Pulse Promotional Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
-                  <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
-
-                  <div class="wistia_responsive_padding" style="padding:64.17% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/alntz3qe1c?videoFoam=true" title="Steve Jobs Highlights Pulse at WWDC 2010 Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
-                  <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
- -->
 
                 </div>
 
                 <div v-if="item['fields']['embed-id'] == 'practice-fusion'" class="media-container">
 
                   <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/7b84ogfdy9?videoFoam=true" title="Practice Fusion Presentation Demo Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
-                <!--
-<script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
-                    <script src="https://fast.wistia.com/embed/medias/7b84ogfdy9.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_7b84ogfdy9 videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/7b84ogfdy9/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div></div></div> -->
 
                 </div>
 
@@ -124,14 +121,7 @@
 
     <!-- END OF NEW CONTENT -->
 
-
-
-    <script src="js/tabletop-min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-
-    <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
-    <!-- <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script> -->
 
     <script src="js/index.js"></script>
     <script>
@@ -145,8 +135,7 @@
 
     </script>
 
-    <!-- WISTIA TEST -->
-
+    <!-- WISTIA -->
     <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
 
     <!-- // Airtable depencies -->
