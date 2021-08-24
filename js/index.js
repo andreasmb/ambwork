@@ -27,6 +27,7 @@ $( document ).ready(function() {
                   self.items = response.data.records;
                   $( ".loading" ).remove();
                   $('.fadein').addClass("opacity-100");
+                  setTimeout(convertMarkdown, 1500);
 
               }).catch(function(error){
                   console.log(error)
@@ -43,15 +44,12 @@ $( document ).ready(function() {
 
   $(window).scroll(function() {
       var windscroll = $(window).scrollTop();
-      // console.log(windscroll, "WINDSCROLL");
       var numProjects = $('#app .project').length;
       if (windscroll >= 100) {
-          // $('nav').addClass('fixed');
           $('#app .project').each(function(i) {
               var currentProjectId = $(this).attr('id');
               var thisProject = $(this).position().top;
               if (thisProject <= windscroll - (screenHeight-400) ) {
-                  // console.log(i, $(this).attr('id'), thisProject, windscroll);
                   $('#toc a').removeClass('active');
                   $('#toc a').eq(i).addClass('active');
                   var offset = (i*tocUnitHeight)+tocStartOffset;
@@ -60,8 +58,6 @@ $( document ).ready(function() {
           });
 
       } else {
-          //
-          // $('nav').removeClass('fixed');
           $('#toc a.active').removeClass('active');
           $('#toc a:first').addClass('active');
       }
@@ -72,18 +68,14 @@ $( document ).ready(function() {
 
   // Convert markdown to html
 
-  setTimeout(function(){
-
+  function convertMarkdown() {
     $( ".markdown" ).each(function(index) {
       var converter = new showdown.Converter();
       var md = $(this).text();
       var html = converter.makeHtml(md);
       $(this).html(html);
     });
-
-    // findProjectTop();
-
-  }, 1500);
+  }
 
 
 });
