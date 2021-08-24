@@ -6,7 +6,7 @@ sectionSpacing = 200px
 mediaSpacing = 50px
 columnWidth = 470px
 textSpacing = 20px
-gutter = 28px
+gutter = 32px
 numberSize = 12px
 navStart = 153.5px
 navSize = 30px
@@ -37,7 +37,7 @@ fontBaseUrl = '../fonts/'
 
 html
   color: darkGray
-  font-size: 16px
+  font-size: 20px
   -webkit-font-smoothing: antialiased
   scroll-behavior: smooth
 
@@ -76,7 +76,7 @@ small
 section
   padding-top: sectionSpacing
   &.gray-bg
-    background: #eeeeee
+    background: linear-gradient(#eee, #fff)
 
 #app, #top
   position: relative
@@ -200,6 +200,6 @@ for num in (1..10)
 
 @media (-webkit-min-device-pixel-ratio: 2) and (max-width: 1000px), (min-resolution: 192dppx)
   html
-    font-size: 200%
+    font-size: 150%
   .nav.down-arrow
     background-size: (navSize)px
