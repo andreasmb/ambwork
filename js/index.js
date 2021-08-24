@@ -40,10 +40,13 @@ $( document ).ready(function() {
 
   var screenHeight = $(window).height();
   var tocStartOffset = 8;
-  var tocUnitHeight = 56;
+  var tocUnitHeight;
 
   $(window).scroll(function() {
       var windscroll = $(window).scrollTop();
+      if (tocUnitHeight == null) {
+           tocUnitHeight = $('#toc a').first().outerHeight();
+      }
       var numProjects = $('#app .project').length;
       if (windscroll >= 100) {
           $('#app .project').each(function(i) {
