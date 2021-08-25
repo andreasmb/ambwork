@@ -45,7 +45,7 @@ $( document ).ready(function() {
   $(window).scroll(function() {
       var windscroll = $(window).scrollTop();
       if (tocUnitHeight == null) {
-           tocUnitHeight = $('#toc a').first().outerHeight();
+           tocUnitHeight = $('#toc a').first().outerHeight(true);
       }
       var numProjects = $('#app .project').length;
       if (windscroll >= 100) {
