@@ -86,6 +86,61 @@
 		"oAP": "/fonts/akkurat-normal.ttf",
 		"oF": 0
 		},
+	"/imgs/bot1.jpg": {
+		"ft": 16384,
+		"iS": 227910,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/bot1.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/imgs/bot2.jpg": {
+		"ft": 16384,
+		"iS": 99034,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/bot2.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/imgs/bot3.jpg": {
+		"ft": 16384,
+		"iS": 204442,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/bot3.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/imgs/chrome1.jpg": {
+		"ft": 16384,
+		"iS": 50713,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/chrome1.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
+		"q": 100
+		},
+	"/imgs/chrome2.jpg": {
+		"ft": 16384,
+		"iS": 42182,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/chrome2.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"/imgs/down-arrow.png": {
 		"ft": 32768,
 		"iS": 1098,
@@ -95,6 +150,116 @@
 		"oIPL": 1,
 		"opt": 1,
 		"oT": 1,
+		"q": 100
+		},
+	"/imgs/dschool1.jpg": {
+		"ft": 16384,
+		"iS": 412473,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/dschool1.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/imgs/lever-environment.jpg": {
+		"ft": 16384,
+		"iS": 1409203,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/lever-environment.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/imgs/lever-system.png": {
+		"ft": 32768,
+		"iS": 410317,
+		"oA": 0,
+		"oAP": "/imgs/lever-system.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/imgs/lever-ui.png": {
+		"ft": 32768,
+		"iS": 275130,
+		"oA": 0,
+		"oAP": "/imgs/lever-ui.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/imgs/practice-fusion1.jpg": {
+		"ft": 16384,
+		"iS": 117071,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/practice-fusion1.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/imgs/practice-fusion2.jpg": {
+		"ft": 16384,
+		"iS": 229440,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/practice-fusion2.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/imgs/profitable-colors1.png": {
+		"ft": 32768,
+		"iS": 190460,
+		"oA": 0,
+		"oAP": "/imgs/profitable-colors1.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/imgs/profitable-colors2.png": {
+		"ft": 32768,
+		"iS": 70839,
+		"oA": 0,
+		"oAP": "/imgs/profitable-colors2.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/imgs/profitable-colors3.png": {
+		"ft": 32768,
+		"iS": 73050,
+		"oA": 0,
+		"oAP": "/imgs/profitable-colors3.png",
+		"oF": 0,
+		"oIPL": 1,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
+	"/imgs/pulse1.jpg": {
+		"ft": 16384,
+		"iS": 154010,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/imgs/pulse1.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
 		"q": 100
 		},
 	"/index.html": {

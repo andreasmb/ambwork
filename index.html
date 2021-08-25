@@ -77,8 +77,18 @@
                 </div>
 
 
-                <div v-for="image in item['fields']['photo']" class="media-container">
+                <!-- <div v-for="image in item['fields']['photo']" class="media-container">
                     <img :src="image['thumbnails']['large']['url']">
+                </div> -->
+
+                <div v-if="item['fields']['image']" class="media-container">
+                  <img :src="item['fields']['image']">
+                </div>
+                <div v-if="item['fields']['image2']" class="media-container">
+                  <img :src="item['fields']['image2']">
+                </div>
+                <div v-if="item['fields']['image3']" class="media-container">
+                  <img :src="item['fields']['image3']">
                 </div>
 
                 <!-- VIDEOS -->
