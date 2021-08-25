@@ -46,7 +46,7 @@
           </div>
         </section>
 
-        <div class="toc-wrapper sticky top-0 w-full mx-auto lg:hidden xl:block">
+        <div class="toc-wrapper sticky top-0 w-full mx-auto sm:hidden lg:block">
 
           <div id="toc" class="absolute -ml-20 -mt-2 transition-all duration-150">
             <a v-for="(item, index) in items" :href="'#'+index" class="p-2 mb-4 block rounded-full h-10 w-10 text-center transition-all duration-300">{{ index+1 }}</a>
@@ -54,8 +54,6 @@
         </div>
 
         <div v-for="(item, index) in items">
-
-          <!-- opacity-0 transition duration-500 -->
 
             <!-- AMBWORK markup -->
             <section :id="index" class="project">
@@ -76,24 +74,19 @@
                   <small class="markdown">{{ item['fields']['meta'] }}</small>
                 </div>
 
-
-                <!-- <div v-for="image in item['fields']['photo']" class="media-container">
-                    <img :src="image['thumbnails']['large']['url']">
-                </div> -->
-
-                <div v-if="item['fields']['image']" class="media-container">
+                <div v-if="item['fields']['image']" class="media-container -ml-8 -mr-8 lg:m-0">
                   <img :src="item['fields']['image']">
                 </div>
-                <div v-if="item['fields']['image2']" class="media-container">
+                <div v-if="item['fields']['image2']" class="media-container -ml-8 -mr-8 lg:m-0">
                   <img :src="item['fields']['image2']">
                 </div>
-                <div v-if="item['fields']['image3']" class="media-container">
+                <div v-if="item['fields']['image3']" class="media-container -ml-8 -mr-8 lg:m-0">
                   <img :src="item['fields']['image3']">
                 </div>
 
                 <!-- VIDEOS -->
 
-                <div v-if="item['fields']['embed-id'] == 'pulse'" class="media-container">
+                <div v-if="item['fields']['embed-id'] == 'pulse'" class="media-container -ml-8 -mr-8 lg:m-0">
 
                   <div class="wistia_responsive_padding" style="padding:56.25% 0 28px 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/g7d5793wsw?videoFoam=true" title="Pulse Promotional Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 
@@ -101,7 +94,7 @@
 
                 </div>
 
-                <div v-if="item['fields']['embed-id'] == 'practice-fusion'" class="media-container">
+                <div v-if="item['fields']['embed-id'] == 'practice-fusion'" class="media-container -ml-8 -mr-8 lg:m-0">
 
                   <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/7b84ogfdy9?videoFoam=true" title="Practice Fusion Presentation Demo Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
 
