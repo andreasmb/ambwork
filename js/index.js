@@ -15,7 +15,7 @@ $( document ).ready(function() {
               var self = this
 
               var app_id = "appKtQz6NKGGJRb8b";
-              var app_key = "keym8ucVtuq8SCzZF";
+              var app_key = "patxPiHh1pcDU4oKe.e3a7276b331ca763674f58b6a715effed0f69d3b7d65e3b89fde66d913ada48e";
 
               this.items = []
               axios.get(
