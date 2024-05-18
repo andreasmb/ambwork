@@ -12,30 +12,33 @@ $( document ).ready(function() {
          this.loadItems();
       },
       methods: {
-          loadItems: function(){
-
-              // Init variables
-              var self = this
-
-              var app_id = "appKtQz6NKGGJRb8b";
-              var app_key = "patxPiHh1pcDU4oKe.e3a7276b331ca763674f58b6a715effed0f69d3b7d65e3b89fde66d913ada48e";
-
-              this.items = []
-              axios.get(
-                  "https://api.airtable.com/v0/"+app_id+"/Menu?view=Grid%20view",
-                  {
-                      headers: { Authorization: "Bearer "+app_key }
-                  }
-              ).then(function(response){
-                  self.items = response.data.records;
-                  $( ".loading" ).remove();
-                  $('.fadein').addClass("opacity-100");
-                  setTimeout(convertMarkdown, 1500);
-
-              }).catch(function(error){
-                  console.log(error)
-              })
+        loadItems: function() {
+          // Init variables
+          var self = this;
+      
+          // Use the injected environment variables
+          if (typeof window.env !== 'undefined') {
+            var app_id = window.env.AIRTABLE_BASE_ID;
+            var app_key = window.env.AIRTABLE_API_KEY;
+      
+            this.items = [];
+            axios.get(
+              "https://api.airtable.com/v0/" + app_id + "/Menu?view=Grid%20view",
+              {
+                headers: { Authorization: "Bearer " + app_key }
+              }
+            ).then(function(response) {
+              self.items = response.data.records;
+              $( ".loading" ).remove();
+              $('.fadein').addClass("opacity-100");
+              setTimeout(convertMarkdown, 1500);
+            }).catch(function(error) {
+              console.log(error);
+            });
+          } else {
+            console.error("Environment variables are not defined.");
           }
+        }
       }
   })
 
