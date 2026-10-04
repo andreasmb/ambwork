@@ -1,158 +1,915 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="only light">
+  <title>Andreas M. Brændhaugen | Portfolio</title>
+  <meta name="description" content="Norwegian product designer based in San Francisco. Selected projects in product, interface and interaction design.">
+  <meta property="og:title" content="Andreas M. Brændhaugen | Portfolio">
+  <meta property="og:description" content="Norwegian product designer based in San Francisco.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://info.ambwork.com/">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preload" href="fonts/akkurat-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <style>:root {
+  --gray: #6b6d70;
+  --dark: #0c0d0d;
+  --column: 1000px;
+  --gutter: 32px;
+  --section-spacing: 200px;
+}
 
-  <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+@font-face {
+  font-family: akkurat-bold;
+  src: url("fonts/akkurat-bold.woff2") format("woff2");
+  font-display: swap;
+}
 
-    <title>Andreas M. Braendhaugen | Portfolio</title>
+@font-face {
+  font-family: akkurat-normal;
+  src: url("fonts/akkurat-normal.woff2") format("woff2");
+  font-display: swap;
+}
 
-    <link href="favicon.png" rel="shortcut icon" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.7.6/tailwind.min.css'>
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-  </head>
+html {
+  color-scheme: only light;
+  background: #fff;
+  color: var(--gray);
+  font-size: 20px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
 
-  <script src="js/env.js"></script>
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
 
-  <body>
+body {
+  margin: 0;
+  font-family: akkurat-bold, sans-serif;
+}
 
-<!-- START NEW CONTENT -->
+h1, h2, p {
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.6;
+}
 
-  <!-- partial:index.partial.html -->
+h1, h2 {
+  color: var(--dark);
+}
 
-  <div class="wrapper">
-    <div id="content">
-      <section id="top" class="gray-bg fadein delay-1">
-        <div class="project-container">
-          <div class="project-text sm:max-w-full md:max-w-lg">
+small {
+  font-size: 80%;
+}
 
-            <h2 class="fadein delay-1">Andreas M. Brændhaugen</h2>
-            <p class="fadein delay-2">Norwegian product designer based in San Francisco. Enjoys working on challenging design  problems (and acquiring unusual domain knowledge in the process). Educated at Stanford University (MFA) and the University of Oslo (BA).</p>
-            <small class="fadein delay-3">You can find me on <a href="http://www.twitter.com/andreasmb" target="_blank">Twitter</a>, <a href="http://www.linkedin.com/in/andreasmb/en" target="_blank">LinkedIn</a>, or <a href="http://www.vimeo.com/andreasmb"  target="_blank">Vimeo</a>.</small>
-          </div>
-          <div class="fadein delay-3 nav down-arrow"></div>
-        </div>
-      </section>
+small p {
+  line-height: 1.5;
+  font-family: akkurat-normal, sans-serif;
+}
 
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .3s;
+}
 
-      <div id="app" class="fadein delay-3">
-        <section class="loading">
-          <div class="project-container">
-            <svg class="animate-spin mr-3 h-5 w-5 text-black inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            <span class="inline-block">Loading projects...</span>
-          </div>
-        </section>
+a:hover {
+  color: var(--dark);
+}
 
-        <div class="toc-wrapper sticky top-0 w-full mx-auto sm:hidden lg:block">
+p a, small a {
+  text-decoration: underline;
+}
 
-          <div id="toc" class="absolute -ml-20 -mt-2 transition-all duration-150">
-            <a v-for="(item, index) in items" :href="'#'+index" class="p-2 mb-4 block rounded-full h-10 w-10 text-center transition-all duration-300">{{ index+1 }}</a>
-          </div>
-        </div>
+img, video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-        <div v-for="(item, index) in items">
+/* Layout */
 
-            <!-- AMBWORK markup -->
-            <section :id="index" class="project">
-              <div class="project-container">
-                <!-- <div class="nav-container nav-container-##index##">
-                  ###each numbering##
-                    <div class="nav nav-##this##">##this##</div>
-                  ##/each##
-                </div> -->
-                <div class="project-text sm:max-w-full md:max-w-lg">
-                  <!--
-                  <div class="nav nav-##index##">##index##</div>
-                  -->
-                  <h2>{{ item['fields']['prosjekt-navn'] }}</h2>
-                  <p class="">
-                    {{ item['fields']['min-beskrivelse'] }}
-                  </p>
-                  <small class="markdown">{{ item['fields']['meta'] }}</small>
-                </div>
+.container {
+  position: relative;
+  max-width: var(--column);
+  margin: 0 auto;
+}
 
-                <div v-if="item['fields']['image']" class="media-container -ml-8 -mr-8 lg:m-0">
-                  <img :src="item['fields']['image']">
-                </div>
-                <div v-if="item['fields']['image2']" class="media-container -ml-8 -mr-8 lg:m-0">
-                  <img :src="item['fields']['image2']">
-                </div>
-                <div v-if="item['fields']['image3']" class="media-container -ml-8 -mr-8 lg:m-0">
-                  <img :src="item['fields']['image3']">
-                </div>
+.hero {
+  padding: 0 var(--gutter);
+  background: linear-gradient(#eee, #fff);
+}
 
-                <!-- VIDEOS -->
+.hero .text {
+  padding-top: var(--section-spacing);
+  padding-bottom: calc(var(--section-spacing) * 2);
+}
 
-                <div v-if="item['fields']['embed-id'] == 'pulse'" class="media-container -ml-8 -mr-8 lg:m-0">
+main {
+  padding: 0 var(--gutter);
+}
 
-                  <div class="wistia_responsive_padding" style="padding:56.25% 0 28px 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/g7d5793wsw?videoFoam=true" title="Pulse Promotional Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
+.project {
+  padding-top: var(--section-spacing);
+}
 
-                  <div class="wistia_responsive_padding" style="padding:64.17% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/alntz3qe1c?videoFoam=true" title="Steve Jobs Highlights Pulse at WWDC 2010 Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
+.text {
+  padding-bottom: calc(var(--section-spacing) / 2);
+}
 
-                </div>
+.text h1, .text h2, .text p {
+  padding-bottom: 10px;
+}
 
-                <div v-if="item['fields']['embed-id'] == 'practice-fusion'" class="media-container -ml-8 -mr-8 lg:m-0">
+@media (min-width: 768px) {
+  .text {
+    max-width: 32rem;
+  }
+}
 
-                  <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/7b84ogfdy9?videoFoam=true" title="Practice Fusion Presentation Demo Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>
+.media {
+  padding-bottom: 50px;
+}
 
-                </div>
+/* Images and videos run edge to edge on small screens */
+@media (max-width: 1023px) {
+  .media {
+    margin: 0 calc(var(--gutter) * -1);
+  }
+}
 
-              </div>
-            </section>
+/* Video player: autoplays muted in view, with a mute toggle and optional
+   progress bar and fullscreen button (set per video in projects/*.md) */
 
-              <!-- END OF AMBWORK MARKUP -->
-          </div>
+.player {
+  position: relative;
+  cursor: pointer;
+}
 
-        </div><!--app-->
+.player button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity .3s, background-color .3s;
+}
 
+.player button:hover {
+  background: rgba(0, 0, 0, .8);
+}
 
+.player button:focus-visible, .player-bar:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 
+.player svg {
+  width: 55%;
+  height: 55%;
+  fill: currentColor;
+}
+
+.player-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  transform: translate(-50%, -50%);
+}
+
+.player.is-playing .player-play {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.player-buttons {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.player-buttons:has(~ .player-bar) {
+  bottom: 28px;
+}
+
+.player-buttons button {
+  width: 40px;
+  height: 40px;
+}
+
+.player.is-muted .icon-sound,
+.player:not(.is-muted) .icon-muted {
+  display: none;
+}
+
+.player-cc[aria-pressed="false"] svg {
+  opacity: .5;
+}
+
+.player-captions {
+  position: absolute;
+  bottom: 72px;
+  left: 50%;
+  max-width: 80%;
+  padding: .25em .6em;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, .7);
+  color: #fff;
+  font-family: akkurat-normal, sans-serif;
+  font-size: clamp(14px, 2vw, 20px);
+  line-height: 1.4;
+  text-align: center;
+  white-space: pre-line;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.player-captions:empty,
+.player:not(.has-started) .player-captions,
+.player.captions-off .player-captions {
+  display: none;
+}
+
+.player:fullscreen .player-captions {
+  font-size: clamp(18px, 2.5vw, 32px);
+}
+
+.player-bar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 16px;
+  display: flex;
+  align-items: flex-end;
+  touch-action: none;
+}
+
+.player-bar::before,
+.player-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  transition: height .15s;
+}
+
+.player-bar::before {
+  content: "";
+  background: rgba(255, 255, 255, .35);
+}
+
+.player-progress {
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.player-bar:hover::before,
+.player-bar:hover .player-progress {
+  height: 9px;
+}
+
+.player:fullscreen {
+  display: flex;
+  align-items: center;
+  background: #000;
+}
+
+.player:fullscreen video {
+  height: 100%;
+  object-fit: contain;
+}
+
+.byline {
+  padding: 100px 0;
+  text-align: center;
+}
+
+/* Down arrow */
+
+.down-arrow {
+  position: absolute;
+  bottom: var(--section-spacing);
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: url("imgs/down-arrow.png") no-repeat 50% 50% / 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .down-arrow {
+    animation: arrow-down 5s infinite ease;
+  }
+}
+
+@keyframes arrow-down {
+  0%, 60%, 100% { transform: translateY(-15px); }
+  30% { transform: translateY(0); }
+}
+
+/* Project numbers in the left margin, only where there is room for them */
+
+.toc-wrapper {
+  display: none;
+  position: sticky;
+  top: 0;
+  max-width: var(--column);
+  height: 0;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .toc-wrapper {
+    display: block;
+  }
+}
+
+.toc {
+  position: absolute;
+  top: 200px;
+  left: -5rem;
+  transform: translateY(-8px);
+  transition: transform .15s;
+}
+
+.toc a {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  padding: .5rem;
+  border-radius: 50%;
+  text-align: center;
+  color: rgba(107, 109, 112, .5);
+  transition: color .3s, background-color .3s;
+}
+
+.toc a.active {
+  background-color: rgba(107, 109, 112, .2);
+  color: var(--dark);
+}
+
+/* Fade in on load */
+
+@media (prefers-reduced-motion: no-preference) {
+  .fadein {
+    animation: fadein .8s both;
+  }
+
+  .delay-1 { animation-delay: .2s; }
+  .delay-2 { animation-delay: .5s; }
+  .delay-3 { animation-delay: .7s; }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+}
+
+/* Smaller type on high-density phones and tablets */
+
+@media (min-resolution: 2dppx) and (max-width: 1000px) {
+  html {
+    font-size: 16px;
+  }
+}
+</style>
+</head>
+<body>
+  <section id="top" class="hero">
+    <div class="container">
+      <div class="text">
+        <h1 class="fadein delay-1">Andreas M. Brændhaugen</h1>
+        <p class="fadein delay-2">Norwegian product designer based in San Francisco. Enjoys working on challenging design problems (and acquiring unusual domain knowledge in the process). Educated at Stanford University (MFA) and the University of Oslo (BA).</p>
+        <small class="fadein delay-3">You can find me on <a href="https://twitter.com/andreasmb">Twitter</a>, <a href="https://www.linkedin.com/in/andreasmb/">LinkedIn</a>, or <a href="https://vimeo.com/andreasmb">Vimeo</a>.</small>
+      </div>
+      <a class="down-arrow fadein delay-3" href="#lever" aria-label="Jump to projects"></a>
     </div>
-    <div class="byline fadein delay-3">
-      <small id="copyright">© <span id="current-year"></span> Andreas M. Brændhaugen</small>
+  </section>
+
+  <main class="fadein delay-3">
+    <div class="toc-wrapper">
+      <nav class="toc" aria-label="Projects">
+        
+        <a href="#lever" title="Lever">1</a>
+        
+        <a href="#pulse" title="Pulse Newsreader">2</a>
+        
+        <a href="#practice-fusion" title="Practice Fusion for iPad">3</a>
+        
+        <a href="#bureau-of-trade" title="Bureau of Trade">4</a>
+        
+        <a href="#chrome-for-a-cause" title="Chrome for a Cause">5</a>
+        
+        <a href="#dschool" title="D.school Website">6</a>
+        
+        <a href="#profitable-colors" title="Profitable Colors">7</a>
+        
+      </nav>
     </div>
 
-  </div>
+    
+    <section class="project" id="lever">
+      <div class="container">
+        <div class="text">
+          <h2>Lever</h2>
+          <p>Great teams are built with great teamwork. Lever helps you and your team source, vet, and close the best candidates. Product design (UI/UX), branding, front-end engineering.</p>
+          <small><p>With Sarah Nahm and the Lever design team (Corina Yen, Jennifer Nguyen, and Mikael Keussen). <a href="http://www.lever.co">Link</a></p></small>
+        </div>
 
+        
+        <div class="media">
+          <img src="imgs/lever-ui-1600.webp" srcset="imgs/lever-ui-800.webp 800w, imgs/lever-ui-1600.webp 1600w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1600" height="1944" alt="Lever, image 1"
+               loading="lazy" decoding="async">
+        </div>
+        
+        <div class="media">
+          <img src="imgs/lever-system-1600.webp" srcset="imgs/lever-system-800.webp 800w, imgs/lever-system-1600.webp 1600w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1600" height="2464" alt="Lever, image 2"
+               loading="lazy" decoding="async">
+        </div>
+        
+        <div class="media">
+          <img src="imgs/lever-environment-1600.webp" srcset="imgs/lever-environment-800.webp 800w, imgs/lever-environment-1600.webp 1600w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1600" height="1957" alt="Lever, image 3"
+               loading="lazy" decoding="async">
+        </div>
+        
 
+        
+      </div>
+    </section>
+    
+    <section class="project" id="pulse">
+      <div class="container">
+        <div class="text">
+          <h2>Pulse Newsreader</h2>
+          <p>Visual design, interface design, and promotional film for the popular iPad application Pulse for Alphonso Labs. The app was featured as the "App of the Week" in the iTunes Store and won the Apple Design Award.</p>
+          <small><p>With Akshay Kothari and Ankit Gupta. Pulse was acquired by LinkedIn in 2013.</p></small>
+        </div>
 
+        
+        <div class="media">
+          <img src="imgs/pulse1-1024.webp" srcset="imgs/pulse1-800.webp 800w, imgs/pulse1-1024.webp 1024w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1024" height="669" alt="Pulse Newsreader, image 1"
+               loading="lazy" decoding="async">
+        </div>
+        
 
+        
+        <div class="media">
+          <div class="player is-muted">
+            <video muted playsinline preload="none" poster="imgs/pulse-promo-1280.webp" loop
+                   width="1280" height="720" aria-label="Pulse promotional video">
+              <source src="videos/pulse-promo.mp4" type="video/mp4">
+              
+            </video>
+            
+            <button class="player-play" type="button" aria-label="Play Pulse promotional video">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="player-buttons">
+              
+              
+              <button class="player-mute" type="button" aria-label="Unmute">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9h4l5-4v14l-5-4H4z"/>
+                  <path class="icon-muted" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path class="icon-sound" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="media">
+          <div class="player is-muted">
+            <video muted playsinline preload="none" poster="imgs/pulse-wwdc-1280.webp" 
+                   width="1280" height="822" aria-label="Steve Jobs highlights Pulse at WWDC 2010">
+              <source src="videos/pulse-wwdc.mp4" type="video/mp4">
+              
+              <track kind="subtitles" src="videos/pulse-wwdc.vtt" srclang="en" label="English">
+              
+            </video>
+            
+            <div class="player-captions" aria-hidden="true"></div>
+            
+            <button class="player-play" type="button" aria-label="Play Steve Jobs highlights Pulse at WWDC 2010">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="player-buttons">
+              
+              <button class="player-cc" type="button" aria-label="Subtitles" aria-pressed="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path d="M10.5 10.5a2 2 0 1 0 0 3M17 10.5a2 2 0 1 0 0 3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </button>
+              
+              
+              <button class="player-mute" type="button" aria-label="Unmute">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9h4l5-4v14l-5-4H4z"/>
+                  <path class="icon-muted" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path class="icon-sound" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <section class="project" id="practice-fusion">
+      <div class="container">
+        <div class="text">
+          <h2>Practice Fusion for iPad</h2>
+          <p>Practice Fusion's electronic health record (EHR) system gives doctors fast access to their patients' information. The tablet format frees doctors from desktops and facilitates a face-to-face interaction between doctors and patients.</p>
+          <small><p>Winner of the IxDA award 2013 in the 'Optimizing' category. Interaction design, user research, prototyping. With Stefan Klocek, Jayson McCauliff, and Elisha Cook.</p></small>
+        </div>
 
+        
+        <div class="media">
+          <img src="imgs/practice-fusion1-1600.webp" srcset="imgs/practice-fusion1-800.webp 800w, imgs/practice-fusion1-1600.webp 1600w, imgs/practice-fusion1-1600.webp 1600w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1600" height="892" alt="Practice Fusion for iPad, image 1"
+               loading="lazy" decoding="async">
+        </div>
+        
+        <div class="media">
+          <img src="imgs/practice-fusion2-1500.webp" srcset="imgs/practice-fusion2-800.webp 800w, imgs/practice-fusion2-1500.webp 1500w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1500" height="1000" alt="Practice Fusion for iPad, image 2"
+               loading="lazy" decoding="async">
+        </div>
+        
 
+        
+        <div class="media">
+          <div class="player is-muted">
+            <video muted playsinline preload="none" poster="imgs/practice-fusion-demo-1280.webp" loop
+                   width="1280" height="720" aria-label="Practice Fusion presentation demo">
+              <source src="videos/practice-fusion-demo.mp4" type="video/mp4">
+              
+              <track kind="subtitles" src="videos/practice-fusion-demo.vtt" srclang="en" label="English">
+              
+            </video>
+            
+            <div class="player-captions" aria-hidden="true"></div>
+            
+            <button class="player-play" type="button" aria-label="Play Practice Fusion presentation demo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="player-buttons">
+              
+              <button class="player-cc" type="button" aria-label="Subtitles" aria-pressed="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path d="M10.5 10.5a2 2 0 1 0 0 3M17 10.5a2 2 0 1 0 0 3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </button>
+              
+              
+              <button class="player-fullscreen" type="button" aria-label="Full screen">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              </button>
+              
+              <button class="player-mute" type="button" aria-label="Unmute">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9h4l5-4v14l-5-4H4z"/>
+                  <path class="icon-muted" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path class="icon-sound" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </button>
+            </div>
+            
+            <div class="player-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="player-progress"></div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <section class="project" id="bureau-of-trade">
+      <div class="container">
+        <div class="text">
+          <h2>Bureau of Trade</h2>
+          <p>An idiosyncratic fashion magazine and online store for men. The site curated items in groups that highlighted their shared aesthetics accompanied by witty commentary. Acquired by eBay in 2014.</p>
+          <small><p>UI/UX and front-end engineering. With Max Ellinger and Michael Moskowitz. <a href="http://www.gq.com/style/blogs/the-gq-eye/2012/02/stuff-we-like-bureau-of-trade.html">Press</a></p></small>
+        </div>
 
-    <!-- END OF NEW CONTENT -->
+        
+        <div class="media">
+          <img src="imgs/bot1-1505.webp" srcset="imgs/bot1-800.webp 800w, imgs/bot1-1505.webp 1505w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1505" height="996" alt="Bureau of Trade, image 1"
+               loading="lazy" decoding="async">
+        </div>
+        
+        <div class="media">
+          <img src="imgs/bot2-1003.webp" srcset="imgs/bot2-800.webp 800w, imgs/bot2-1003.webp 1003w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1003" height="664" alt="Bureau of Trade, image 2"
+               loading="lazy" decoding="async">
+        </div>
+        
+        <div class="media">
+          <img src="imgs/bot3-1505.webp" srcset="imgs/bot3-800.webp 800w, imgs/bot3-1505.webp 1505w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1505" height="968" alt="Bureau of Trade, image 3"
+               loading="lazy" decoding="async">
+        </div>
+        
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        
+      </div>
+    </section>
+    
+    <section class="project" id="chrome-for-a-cause">
+      <div class="container">
+        <div class="text">
+          <h2>Chrome for a Cause</h2>
+          <p>Worked with Google's marketing team to let the nascent Chrome community "donate" tabs to a charity of their choosing. The campaign contributed $1m to five worthy causes, with over 60m tabs opened in a five-day period.</p>
+          <small><p>With Sarah Nahm. <a href="http://mashable.com/2010/12/15/chrome-for-a-cause/">Press</a></p></small>
+        </div>
 
-    <script src="js/index.js"></script>
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        <div class="media">
+          <img src="imgs/chrome1-1003.webp" srcset="imgs/chrome1-800.webp 800w, imgs/chrome1-1003.webp 1003w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1003" height="664" alt="Chrome for a Cause, image 1"
+               loading="lazy" decoding="async">
+        </div>
+        
+        <div class="media">
+          <img src="imgs/chrome2-1000.webp" srcset="imgs/chrome2-800.webp 800w, imgs/chrome2-1000.webp 1000w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1000" height="428" alt="Chrome for a Cause, image 2"
+               loading="lazy" decoding="async">
+        </div>
+        
 
-    ga('create', 'UA-2215092-2', 'auto');
-    ga('send', 'pageview');
+        
+      </div>
+    </section>
+    
+    <section class="project" id="dschool">
+      <div class="container">
+        <div class="text">
+          <h2>D.school Website</h2>
+          <p>The online presence of one of the world's most influential design institutions.</p>
+          <small><p>With Jason Conroy (FindingSimple) and Caroline O'Connor.</p></small>
+        </div>
 
-    </script>
+        
+        <div class="media">
+          <img src="imgs/dschool1-1500.webp" srcset="imgs/dschool1-800.webp 800w, imgs/dschool1-1500.webp 1500w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1500" height="1132" alt="D.school Website, image 1"
+               loading="lazy" decoding="async">
+        </div>
+        
 
-    <!-- WISTIA -->
-    <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+        
+      </div>
+    </section>
+    
+    <section class="project" id="profitable-colors">
+      <div class="container">
+        <div class="text">
+          <h2>Profitable Colors</h2>
+          <p>Interactive visualization displaying which logo colors correlate with stock performance for Fortune 500 companies. Shortlisted for the Information is Beautiful data visualization awards in 2012.</p>
+          <small><p>With Greg Hochmuth and Sarah Nahm. <a href="http://profitablecolors.bysubset.com/">Link</a></p></small>
+        </div>
 
-    <!-- // Airtable depencies -->
-    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+        
+        <div class="media">
+          <img src="imgs/profitable-colors1-1574.webp" srcset="imgs/profitable-colors1-800.webp 800w, imgs/profitable-colors1-1574.webp 1574w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1574" height="924" alt="Profitable Colors, image 1"
+               loading="lazy" decoding="async">
+        </div>
+        
+        <div class="media">
+          <img src="imgs/profitable-colors2-1574.webp" srcset="imgs/profitable-colors2-800.webp 800w, imgs/profitable-colors2-1574.webp 1574w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1574" height="924" alt="Profitable Colors, image 2"
+               loading="lazy" decoding="async">
+        </div>
+        
+        <div class="media">
+          <img src="imgs/profitable-colors3-1574.webp" srcset="imgs/profitable-colors3-800.webp 800w, imgs/profitable-colors3-1574.webp 1574w" sizes="(min-width: 1024px) 960px, 100vw"
+               width="1574" height="924" alt="Profitable Colors, image 3"
+               loading="lazy" decoding="async">
+        </div>
+        
 
-    <!-- Markdown conversion -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js'></script>
+        
+      </div>
+    </section>
+    
+  </main>
 
+  <footer class="byline fadein delay-3">
+    <small>© 2026 Andreas M. Brændhaugen</small>
+  </footer>
 
+  <script>// Highlight the project currently in view and slide the numbers so the
+// active one stays level with that project's heading.
+(function () {
+  var toc = document.querySelector('.toc');
+  var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var projects = links.map(function (link) {
+    return document.getElementById(link.hash.slice(1));
+  });
+  function activate(index) {
+    links.forEach(function (link, i) {
+      link.classList.toggle('active', i === index);
+    });
+    var step = links[1] ? links[1].offsetTop - links[0].offsetTop : 0;
+    toc.style.transform = 'translateY(' + (-index * step - 8) + 'px)';
+  }
 
+  // A project is active once its top reaches the top of the window, which is
+  // when its heading lines up with the highlighted number. At the very bottom
+  // of the page the last project wins, even if it's too short to get there.
+  function update() {
+    var index = 0;
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atBottom) {
+      index = projects.length - 1;
+    } else {
+      projects.forEach(function (project, i) {
+        if (project.getBoundingClientRect().top <= 10) index = i;
+      });
+    }
+    activate(index);
+  }
 
-  </body>
+  var pending = false;
+  function onScroll() {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(function () {
+      pending = false;
+      update();
+    });
+  }
 
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+
+// Videos play muted while at least half visible and pause when scrolled away.
+// A video the visitor paused stays paused, and one that has finished (without
+// looping) resets to its poster and waits until it is scrolled back into view.
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  Array.prototype.forEach.call(document.querySelectorAll('.player'), function (player) {
+    var video = player.querySelector('video');
+    var mute = player.querySelector('.player-mute');
+    var fullscreen = player.querySelector('.player-fullscreen');
+    var bar = player.querySelector('.player-bar');
+    var progress = player.querySelector('.player-progress');
+    var pausedByVisitor = false;
+    var finished = false;
+
+    function sync() {
+      player.classList.toggle('is-playing', !video.paused);
+      player.classList.toggle('is-muted', video.muted);
+      mute.setAttribute('aria-label', video.muted ? 'Unmute' : 'Mute');
+    }
+
+    function togglePlay() {
+      if (video.paused) {
+        pausedByVisitor = false;
+        finished = false;
+        video.play().catch(sync);
+      } else {
+        pausedByVisitor = true;
+        video.pause();
+      }
+    }
+
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    video.addEventListener('volumechange', sync);
+    video.addEventListener('ended', function () {
+      finished = true;
+      video.load(); // back to the poster image
+    });
+
+    player.addEventListener('click', function (event) {
+      if (!event.target.closest('button, .player-bar')) togglePlay();
+    });
+    player.querySelector('.player-play').addEventListener('click', togglePlay);
+    mute.addEventListener('click', function () {
+      video.muted = !video.muted;
+    });
+
+    if (fullscreen) {
+      fullscreen.addEventListener('click', function () {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else if (player.requestFullscreen) {
+          player.requestFullscreen();
+        } else if (video.webkitEnterFullscreen) {
+          video.webkitEnterFullscreen(); // iPhone
+        }
+      });
+    }
+
+    // Subtitles are drawn in our own overlay (the track stays "hidden") so they
+    // look the same in every browser and sit above the buttons.
+    var track = video.textTracks[0];
+    var captions = player.querySelector('.player-captions');
+    var ccButton = player.querySelector('.player-cc');
+    if (track && captions) {
+      var hideNativeCues = function () { track.mode = 'hidden'; };
+      hideNativeCues();
+      // Back at the poster after load(), so no subtitles until it plays again
+      video.addEventListener('loadstart', function () {
+        hideNativeCues();
+        player.classList.remove('has-started');
+      });
+      video.addEventListener('playing', function () {
+        player.classList.add('has-started');
+      });
+      track.addEventListener('cuechange', function () {
+        var cues = track.activeCues || [];
+        captions.textContent = Array.prototype.map.call(cues, function (cue) {
+          return cue.text;
+        }).join('\n');
+      });
+      ccButton.addEventListener('click', function () {
+        var on = player.classList.toggle('captions-off') === false;
+        ccButton.setAttribute('aria-pressed', String(on));
+      });
+    }
+
+    if (bar) {
+      video.addEventListener('timeupdate', function () {
+        var percent = video.duration ? video.currentTime / video.duration * 100 : 0;
+        progress.style.transform = 'scaleX(' + percent / 100 + ')';
+        bar.setAttribute('aria-valuenow', Math.round(percent));
+      });
+
+      var seek = function (event) {
+        var rect = bar.getBoundingClientRect();
+        var ratio = Math.min(Math.max((event.clientX - rect.left) / rect.width, 0), 1);
+        if (video.duration) video.currentTime = ratio * video.duration;
+      };
+      bar.addEventListener('pointerdown', function (event) {
+        seek(event);
+        bar.addEventListener('pointermove', seek);
+        bar.setPointerCapture(event.pointerId);
+      });
+      bar.addEventListener('pointerup', function () {
+        bar.removeEventListener('pointermove', seek);
+      });
+      bar.addEventListener('keydown', function (event) {
+        var step = { ArrowLeft: -5, ArrowRight: 5 }[event.key];
+        if (step && video.duration) {
+          video.currentTime = Math.min(Math.max(video.currentTime + step, 0), video.duration);
+          event.preventDefault();
+        }
+      });
+    }
+
+    new IntersectionObserver(function (entries) {
+      var entry = entries[0];
+      if (entry.isIntersecting) {
+        if (!pausedByVisitor && !finished && !reduceMotion) video.play().catch(sync);
+      } else {
+        finished = false;
+        if (!video.paused) video.pause();
+      }
+    }, { threshold: 0.5 }).observe(video);
+  });
+})();
+</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRP5RLCBWY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HRP5RLCBWY');
+  </script>
+</body>
 </html>
