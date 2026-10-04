@@ -37,6 +37,9 @@ always have a mute toggle. Export them as H.264 MP4, around 720p, e.g.:
 ffmpeg -i input.mov -vf "scale='min(1280,iw)':-2" -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart videos/name.mp4
 ```
 
+Full-quality source videos live in `originals/`, which is git-ignored (one is
+over GitHub's 100 MB file limit), so keep a backup of that folder elsewhere.
+
 Commit to `main` (editing on github.com works fine) and the site redeploys
 in a minute or two.
 
