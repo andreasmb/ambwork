@@ -1,8 +1,10 @@
 ---
 title: Chrome for a Cause
 images:
-  - imgs/chrome1.jpg
-  - imgs/chrome2.jpg
+  - src: imgs/chrome-for-a-cause-browser.png
+    alt: Chrome for a Cause extension popup in Chrome, asking the user to choose a cause for 397 tabs
+  - src: imgs/chrome-for-a-cause-popups.png
+    alt: Chrome for a Cause popups for launch, progress, sharing and contributing tabs
 meta: >-
   With Sarah Nahm. [Press](http://mashable.com/2010/12/15/chrome-for-a-cause/)
 ---

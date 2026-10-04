@@ -20,7 +20,7 @@ from PIL import Image
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "_site"
-IMAGE_WIDTHS = (800, 1600)  # column is 960px wide, so 1600 covers 2x screens
+IMAGE_WIDTHS = (800, 1600, 2000)  # column is 960px wide; 2000 covers 2x screens
 STATIC = ["favicon.png", "CNAME", "fonts", "imgs/down-arrow.png"]
 
 
@@ -56,7 +56,7 @@ def build_image(entry, title, n):
     src = ROOT / entry["src"]
     with Image.open(src) as img:
         img = img.convert("RGBA" if img.mode in ("RGBA", "P") else "RGB")
-        widths = [w for w in IMAGE_WIDTHS if w < img.width] + [min(img.width, IMAGE_WIDTHS[-1])]
+        widths = sorted({w for w in IMAGE_WIDTHS if w < img.width} | {min(img.width, IMAGE_WIDTHS[-1])})
         srcset = []
         for width in widths:
             name = f"imgs/{src.stem}-{width}.webp"
