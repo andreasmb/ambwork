@@ -23,7 +23,7 @@
 }
 
 html {
-  color-scheme: light;
+  color-scheme: only light;
   background: #fff;
   color: var(--gray);
   font-size: 20px;
