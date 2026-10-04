@@ -52,12 +52,12 @@
         </div>
         {% endfor %}
 
-        {% for video in project.videos or [] %}
+        {% for video in project.videos %}
         <div class="media">
-          <div class="video" style="padding-top: {{ video.ratio }}%">
-            <iframe src="https://fast.wistia.net/embed/iframe/{{ video.id }}" title="{{ video.title }}"
-                    allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
-          </div>
+          <video controls playsinline preload="none" poster="{{ video.poster }}"
+                 width="{{ video.width }}" height="{{ video.height }}" aria-label="{{ video.title }}">
+            <source src="{{ video.src }}" type="video/mp4">
+          </video>
         </div>
         {% endfor %}
       </div>

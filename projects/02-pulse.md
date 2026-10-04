@@ -3,12 +3,12 @@ title: Pulse Newsreader
 images:
   - imgs/pulse1.jpg
 videos:
-  - id: g7d5793wsw
-    title: Pulse Promotional Video
-    ratio: 56.25
-  - id: alntz3qe1c
-    title: Steve Jobs Highlights Pulse at WWDC 2010 Video
-    ratio: 64.17
+  - src: videos/pulse-promo.mp4
+    poster: videos/pulse-promo.jpg
+    title: Pulse promotional video
+  - src: videos/pulse-wwdc.mp4
+    poster: videos/pulse-wwdc.jpg
+    title: Steve Jobs highlights Pulse at WWDC 2010
 meta: >-
   With Akshay Kothari and Ankit Gupta. Pulse was acquired by LinkedIn in 2013.
 ---

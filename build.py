@@ -34,8 +34,17 @@ def load_projects():
         project["meta"] = markdown.markdown(project.get("meta", ""))
         project["images"] = [build_image(img, project["title"], n)
                              for n, img in enumerate(project.get("images", []), 1)]
+        project["videos"] = [build_video(video) for video in project.get("videos", [])]
         projects.append(project)
     return projects
+
+
+def build_video(video):
+    """Copy the MP4 and turn its poster frame into a WebP."""
+    (OUT / "videos").mkdir(exist_ok=True)
+    shutil.copy2(ROOT / video["src"], OUT / video["src"])
+    poster = build_image(video["poster"], video["title"], 0)
+    return {**video, "poster": poster["src"], "width": poster["width"], "height": poster["height"]}
 
 
 def build_image(entry, title, n):
