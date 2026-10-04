@@ -10,6 +10,7 @@ videos:
     loop: true
     playbar: true
     fullscreen: true
+    subtitles: videos/practice-fusion-demo.vtt
 meta: >-
   Winner of the IxDA award 2013 in the 'Optimizing' category. Interaction design, user research, prototyping. With Stefan Klocek, Jayson McCauliff, and Elisha Cook.
 ---
