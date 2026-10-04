@@ -6,6 +6,7 @@ videos:
   - src: videos/pulse-promo.mp4
     poster: videos/pulse-promo.jpg
     title: Pulse promotional video
+    loop: true
   - src: videos/pulse-wwdc.mp4
     poster: videos/pulse-wwdc.jpg
     title: Steve Jobs highlights Pulse at WWDC 2010

@@ -44,3 +44,104 @@
   window.addEventListener('resize', onScroll);
   update();
 })();
+
+// Videos play muted while at least half visible and pause when scrolled away.
+// A video the visitor paused stays paused, and one that has finished (without
+// looping) resets to its poster and waits until it is scrolled back into view.
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  Array.prototype.forEach.call(document.querySelectorAll('.player'), function (player) {
+    var video = player.querySelector('video');
+    var mute = player.querySelector('.player-mute');
+    var fullscreen = player.querySelector('.player-fullscreen');
+    var bar = player.querySelector('.player-bar');
+    var progress = player.querySelector('.player-progress');
+    var pausedByVisitor = false;
+    var finished = false;
+
+    function sync() {
+      player.classList.toggle('is-playing', !video.paused);
+      player.classList.toggle('is-muted', video.muted);
+      mute.setAttribute('aria-label', video.muted ? 'Unmute' : 'Mute');
+    }
+
+    function togglePlay() {
+      if (video.paused) {
+        pausedByVisitor = false;
+        finished = false;
+        video.play().catch(sync);
+      } else {
+        pausedByVisitor = true;
+        video.pause();
+      }
+    }
+
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    video.addEventListener('volumechange', sync);
+    video.addEventListener('ended', function () {
+      finished = true;
+      video.load(); // back to the poster image
+    });
+
+    player.addEventListener('click', function (event) {
+      if (!event.target.closest('button, .player-bar')) togglePlay();
+    });
+    player.querySelector('.player-play').addEventListener('click', togglePlay);
+    mute.addEventListener('click', function () {
+      video.muted = !video.muted;
+    });
+
+    if (fullscreen) {
+      fullscreen.addEventListener('click', function () {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else if (player.requestFullscreen) {
+          player.requestFullscreen();
+        } else if (video.webkitEnterFullscreen) {
+          video.webkitEnterFullscreen(); // iPhone
+        }
+      });
+    }
+
+    if (bar) {
+      video.addEventListener('timeupdate', function () {
+        var percent = video.duration ? video.currentTime / video.duration * 100 : 0;
+        progress.style.transform = 'scaleX(' + percent / 100 + ')';
+        bar.setAttribute('aria-valuenow', Math.round(percent));
+      });
+
+      var seek = function (event) {
+        var rect = bar.getBoundingClientRect();
+        var ratio = Math.min(Math.max((event.clientX - rect.left) / rect.width, 0), 1);
+        if (video.duration) video.currentTime = ratio * video.duration;
+      };
+      bar.addEventListener('pointerdown', function (event) {
+        seek(event);
+        bar.addEventListener('pointermove', seek);
+        bar.setPointerCapture(event.pointerId);
+      });
+      bar.addEventListener('pointerup', function () {
+        bar.removeEventListener('pointermove', seek);
+      });
+      bar.addEventListener('keydown', function (event) {
+        var step = { ArrowLeft: -5, ArrowRight: 5 }[event.key];
+        if (step && video.duration) {
+          video.currentTime = Math.min(Math.max(video.currentTime + step, 0), video.duration);
+          event.preventDefault();
+        }
+      });
+    }
+
+    new IntersectionObserver(function (entries) {
+      var entry = entries[0];
+      if (entry.isIntersecting) {
+        if (!pausedByVisitor && !finished && !reduceMotion) video.play().catch(sync);
+      } else {
+        finished = false;
+        if (!video.paused) video.pause();
+      }
+    }, { threshold: 0.5 }).observe(video);
+  });
+})();

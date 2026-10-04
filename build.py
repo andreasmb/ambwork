@@ -95,8 +95,5 @@ def build():
 if __name__ == "__main__":
     build()
     if "--serve" in sys.argv:
-        import functools
-        import http.server
-        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=OUT)
-        print("Serving at http://localhost:8000")
-        http.server.ThreadingHTTPServer(("", 8000), handler).serve_forever()
+        from serve import serve
+        serve()

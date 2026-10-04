@@ -54,10 +54,34 @@
 
         {% for video in project.videos %}
         <div class="media">
-          <video controls playsinline preload="none" poster="{{ video.poster }}"
-                 width="{{ video.width }}" height="{{ video.height }}" aria-label="{{ video.title }}">
-            <source src="{{ video.src }}" type="video/mp4">
-          </video>
+          <div class="player is-muted">
+            <video muted playsinline preload="none" poster="{{ video.poster }}" {% if video.loop %}loop{% endif %}
+                   width="{{ video.width }}" height="{{ video.height }}" aria-label="{{ video.title }}">
+              <source src="{{ video.src }}" type="video/mp4">
+            </video>
+            <button class="player-play" type="button" aria-label="Play {{ video.title }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="player-buttons">
+              {% if video.fullscreen %}
+              <button class="player-fullscreen" type="button" aria-label="Full screen">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              </button>
+              {% endif %}
+              <button class="player-mute" type="button" aria-label="Unmute">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9h4l5-4v14l-5-4H4z"/>
+                  <path class="icon-muted" d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path class="icon-sound" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </button>
+            </div>
+            {% if video.playbar %}
+            <div class="player-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="player-progress"></div>
+            </div>
+            {% endif %}
+          </div>
         </div>
         {% endfor %}
       </div>

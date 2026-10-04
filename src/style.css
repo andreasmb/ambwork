@@ -133,6 +133,125 @@ main {
   }
 }
 
+/* Video player: autoplays muted in view, with a mute toggle and optional
+   progress bar and fullscreen button (set per video in projects/*.md) */
+
+.player {
+  position: relative;
+  cursor: pointer;
+}
+
+.player button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity .3s, background-color .3s;
+}
+
+.player button:hover {
+  background: rgba(0, 0, 0, .8);
+}
+
+.player button:focus-visible, .player-bar:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.player svg {
+  width: 55%;
+  height: 55%;
+  fill: currentColor;
+}
+
+.player-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  transform: translate(-50%, -50%);
+}
+
+.player.is-playing .player-play {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.player-buttons {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.player-buttons:has(~ .player-bar) {
+  bottom: 28px;
+}
+
+.player-buttons button {
+  width: 40px;
+  height: 40px;
+}
+
+.player.is-muted .icon-sound,
+.player:not(.is-muted) .icon-muted {
+  display: none;
+}
+
+.player-bar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 16px;
+  display: flex;
+  align-items: flex-end;
+  touch-action: none;
+}
+
+.player-bar::before,
+.player-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  transition: height .15s;
+}
+
+.player-bar::before {
+  content: "";
+  background: rgba(255, 255, 255, .35);
+}
+
+.player-progress {
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.player-bar:hover::before,
+.player-bar:hover .player-progress {
+  height: 9px;
+}
+
+.player:fullscreen {
+  display: flex;
+  align-items: center;
+  background: #000;
+}
+
+.player:fullscreen video {
+  height: 100%;
+  object-fit: contain;
+}
+
 .byline {
   padding: 100px 0;
   text-align: center;
