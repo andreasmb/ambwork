@@ -5,6 +5,6 @@ images:
   - imgs/lever-system.png
   - imgs/lever-environment.jpg
 meta: >-
-  With Sarah Nahm and the Lever design team – (Corina Yen, Jennifer Nguyen, and Mikael Keussen). [Link](http://www.lever.co)
+  With Sarah Nahm and the Lever design team (Corina Yen, Jennifer Nguyen, and Mikael Keussen). [Link](http://www.lever.co)
 ---
 Great teams are built with great teamwork. Lever helps you and your team source, vet, and close the best candidates. Product design (UI/UX), branding, front-end engineering.

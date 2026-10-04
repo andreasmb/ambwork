@@ -12,4 +12,4 @@ videos:
 meta: >-
   With Akshay Kothari and Ankit Gupta. Pulse was acquired by LinkedIn in 2013.
 ---
-Visual design, interface design, and promotional film for the popular iPad application Pulse for Alphonso Labs. The app was featured as the "App of the Week" in the iTunes Store and won the Apple design award.
+Visual design, interface design, and promotional film for the popular iPad application Pulse for Alphonso Labs. The app was featured as the "App of the Week" in the iTunes Store and won the Apple Design Award.

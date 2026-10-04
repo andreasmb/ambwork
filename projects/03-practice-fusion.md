@@ -8,6 +8,6 @@ videos:
     poster: videos/practice-fusion-demo.jpg
     title: Practice Fusion presentation demo
 meta: >-
-  Winner of the IXDA award 2013 in the 'Optimizing' category. Interaction design, user research, prototyping. With Stefan Klocek, Jayson McCauliff, and Elisha Cook.
+  Winner of the IxDA award 2013 in the 'Optimizing' category. Interaction design, user research, prototyping. With Stefan Klocek, Jayson McCauliff, and Elisha Cook.
 ---
-Practice Fusion's electronic health record (EHR) system gives doctors fast access to their patient's information. The tablet format frees doctors from desktops and facilitates a face-to-face interaction between doctors and patients.
+Practice Fusion's electronic health record (EHR) system gives doctors fast access to their patients' information. The tablet format frees doctors from desktops and facilitates a face-to-face interaction between doctors and patients.

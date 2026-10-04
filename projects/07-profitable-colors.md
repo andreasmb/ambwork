@@ -7,4 +7,4 @@ images:
 meta: >-
   With Greg Hochmuth and Sarah Nahm. [Link](http://profitablecolors.bysubset.com/)
 ---
-Interactive visualization displaying which logo colors correlate with stock performance for Fortune 500 companies. Shortlisted for Information is Beautiful data visualization awards in 2012.
+Interactive visualization displaying which logo colors correlate with stock performance for Fortune 500 companies. Shortlisted for the Information is Beautiful data visualization awards in 2012.
