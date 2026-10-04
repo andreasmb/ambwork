@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andreas M. Brændhaugen | Portfolio</title>
+  <meta name="description" content="Norwegian product designer based in San Francisco. Selected projects in product, interface and interaction design.">
+  <meta property="og:title" content="Andreas M. Brændhaugen | Portfolio">
+  <meta property="og:description" content="Norwegian product designer based in San Francisco.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://info.ambwork.com/">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preload" href="fonts/akkurat-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <style>{{ css | safe }}</style>
+</head>
+<body>
+  <section id="top" class="hero">
+    <div class="container">
+      <div class="text">
+        <h1 class="fadein delay-1">Andreas M. Brændhaugen</h1>
+        <p class="fadein delay-2">Norwegian product designer based in San Francisco. Enjoys working on challenging design problems (and acquiring unusual domain knowledge in the process). Educated at Stanford University (MFA) and the University of Oslo (BA).</p>
+        <small class="fadein delay-3">You can find me on <a href="https://twitter.com/andreasmb">Twitter</a>, <a href="https://www.linkedin.com/in/andreasmb/">LinkedIn</a>, or <a href="https://vimeo.com/andreasmb">Vimeo</a>.</small>
+      </div>
+      <a class="down-arrow fadein delay-3" href="#{{ projects[0].slug }}" aria-label="Jump to projects"></a>
+    </div>
+  </section>
+
+  <main class="fadein delay-3">
+    <div class="toc-wrapper">
+      <nav class="toc" aria-label="Projects">
+        {% for project in projects %}
+        <a href="#{{ project.slug }}" title="{{ project.title }}">{{ loop.index }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+
+    {% for project in projects %}
+    <section class="project" id="{{ project.slug }}">
+      <div class="container">
+        <div class="text">
+          <h2>{{ project.title }}</h2>
+          {{ project.description | safe }}
+          <small>{{ project.meta | safe }}</small>
+        </div>
+
+        {% for image in project.images %}
+        <div class="media">
+          <img src="{{ image.src }}" srcset="{{ image.srcset }}" sizes="(min-width: 1024px) 960px, 100vw"
+               width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}"
+               loading="lazy" decoding="async">
+        </div>
+        {% endfor %}
+
+        {% for video in project.videos or [] %}
+        <div class="media">
+          <div class="video" style="padding-top: {{ video.ratio }}%">
+            <iframe src="https://fast.wistia.net/embed/iframe/{{ video.id }}" title="{{ video.title }}"
+                    allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endfor %}
+  </main>
+
+  <footer class="byline fadein delay-3">
+    <small>© {{ year }} Andreas M. Brændhaugen</small>
+  </footer>
+
+  <script>{{ js | safe }}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRP5RLCBWY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HRP5RLCBWY');
+  </script>
+</body>
+</html>

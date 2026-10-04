@@ -4,25 +4,31 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
-      - name: Inject environment variables
-        env:
-          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
-          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Build site
         run: |
-          echo "window.env = { AIRTABLE_API_KEY: '${{ secrets.AIRTABLE_API_KEY }}', AIRTABLE_BASE_ID: '${{ secrets.AIRTABLE_BASE_ID }}' };" > js/env.js
-          echo "console.log('Environment Variables:', window.env);" >> js/env.js
+          pip install -r requirements.txt
+          python build.py
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: .
+          publish_dir: _site
