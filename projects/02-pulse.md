@@ -10,6 +10,7 @@ videos:
   - src: videos/pulse-wwdc.mp4
     poster: videos/pulse-wwdc.jpg
     title: Steve Jobs highlights Pulse at WWDC 2010
+    subtitles: videos/pulse-wwdc.vtt
 meta: >-
   With Akshay Kothari and Ankit Gupta. Pulse was acquired by LinkedIn in 2013.
 ---

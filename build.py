@@ -40,9 +40,11 @@ def load_projects():
 
 
 def build_video(video):
-    """Copy the MP4 and turn its poster frame into a WebP."""
+    """Copy the MP4 (and subtitles) and turn its poster frame into a WebP."""
     (OUT / "videos").mkdir(exist_ok=True)
-    shutil.copy2(ROOT / video["src"], OUT / video["src"])
+    for key in ("src", "subtitles"):
+        if key in video:
+            shutil.copy2(ROOT / video[key], OUT / video[key])
     poster = build_image(video["poster"], video["title"], 0)
     return {**video, "poster": poster["src"], "width": poster["width"], "height": poster["height"]}
 

@@ -105,6 +105,34 @@
       });
     }
 
+    // Subtitles are drawn in our own overlay (the track stays "hidden") so they
+    // look the same in every browser and sit above the buttons.
+    var track = video.textTracks[0];
+    var captions = player.querySelector('.player-captions');
+    var ccButton = player.querySelector('.player-cc');
+    if (track && captions) {
+      var hideNativeCues = function () { track.mode = 'hidden'; };
+      hideNativeCues();
+      // Back at the poster after load(), so no subtitles until it plays again
+      video.addEventListener('loadstart', function () {
+        hideNativeCues();
+        player.classList.remove('has-started');
+      });
+      video.addEventListener('playing', function () {
+        player.classList.add('has-started');
+      });
+      track.addEventListener('cuechange', function () {
+        var cues = track.activeCues || [];
+        captions.textContent = Array.prototype.map.call(cues, function (cue) {
+          return cue.text;
+        }).join('\n');
+      });
+      ccButton.addEventListener('click', function () {
+        var on = player.classList.toggle('captions-off') === false;
+        ccButton.setAttribute('aria-pressed', String(on));
+      });
+    }
+
     if (bar) {
       video.addEventListener('timeupdate', function () {
         var percent = video.duration ? video.currentTime / video.duration * 100 : 0;

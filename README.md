@@ -21,6 +21,7 @@ videos:                                     # optional
     loop: true                              # optional: loop instead of resetting
     playbar: true                           # optional: seekable progress bar
     fullscreen: true                        # optional: fullscreen button
+    subtitles: videos/lever-demo.vtt        # optional: WebVTT subtitles, on by default
 meta: >-
   With Sarah Nahm and the Lever team. [Link](https://www.lever.co)
 ---
