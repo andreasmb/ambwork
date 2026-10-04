@@ -333,7 +333,13 @@ main {
   top: 200px;
   left: -5rem;
   transform: translateY(-8px);
-  transition: transform .15s;
+  transition: transform .6s cubic-bezier(.22, .61, .36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc {
+    transition: none;
+  }
 }
 
 .toc a {
@@ -345,7 +351,7 @@ main {
   border-radius: 50%;
   text-align: center;
   color: rgba(107, 109, 112, .5);
-  transition: color .3s, background-color .3s;
+  transition: color .4s, background-color .4s;
 }
 
 .toc a.active {
