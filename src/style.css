@@ -289,26 +289,36 @@ main {
   text-align: center;
 }
 
-/* Down arrow */
+/* Down arrow with 'projects' label; the arrow nudges downward every few seconds */
 
 .down-arrow {
   position: absolute;
-  bottom: var(--section-spacing);
+  bottom: calc(var(--section-spacing) + 12px);
   left: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 80%;
+  text-decoration: none;
+}
+
+.down-arrow-icon {
   width: 30px;
   height: 30px;
   background: url("imgs/down-arrow.png") no-repeat 50% 50% / 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .down-arrow {
-    animation: arrow-down 5s infinite ease;
+  .down-arrow-icon {
+    animation: nudge 4.5s ease-in-out 1.5s infinite;
   }
 }
 
-@keyframes arrow-down {
-  0%, 60%, 100% { transform: translateY(-15px); }
-  30% { transform: translateY(0); }
+@keyframes nudge {
+  0%, 22%, 100% { transform: translateY(0); }
+  6% { transform: translateY(8px); }
+  12% { transform: translateY(0); }
+  17% { transform: translateY(4px); }
 }
 
 /* Project numbers in the left margin, only where there is room for them */
