@@ -315,7 +315,6 @@ main {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 80%;
   text-decoration: none;
 }
 
@@ -336,6 +335,53 @@ main {
   6% { transform: translateY(8px); }
   12% { transform: translateY(0); }
   17% { transform: translateY(4px); }
+}
+
+/* Small numbered circles after 'Projects', sized to match its text */
+
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-size: 80%;
+}
+
+.hero-numbers {
+  display: flex;
+  gap: 4px;
+}
+
+.hero-numbers a {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: rgba(107, 109, 112, .5);
+  text-decoration: none;
+  transition: color .4s, background-color .4s;
+}
+
+/* Tighter on phones so the numbers stay on the same line as 'Projects' */
+@media (max-width: 420px) {
+  .hero-nav {
+    column-gap: 10px;
+  }
+
+  .hero-numbers {
+    gap: 2px;
+  }
+
+  .hero-numbers a {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.hero-numbers a:hover {
+  background-color: rgba(107, 109, 112, .2);
+  color: rgba(107, 109, 112, .5);
 }
 
 /* Project numbers in the left margin, only where there is room for them */

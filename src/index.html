@@ -23,7 +23,14 @@
         <small class="fadein delay-3">You can find me on <a href="https://x.com/andreasmb">X</a>, <a href="https://www.linkedin.com/in/andreasmb/">LinkedIn</a>, or <a href="https://vimeo.com/andreasmb">Vimeo</a>.</small>
       </div>
       <div class="hero-next">
-        <a class="down-arrow fadein delay-3" href="#{{ projects[0].slug }}"><span class="down-arrow-icon" aria-hidden="true"></span>Projects</a>
+        <nav class="hero-nav fadein delay-3" aria-label="Projects">
+          <a class="down-arrow" href="#{{ projects[0].slug }}"><span class="down-arrow-icon" aria-hidden="true"></span>Projects</a>
+          <span class="hero-numbers">
+            {% for project in projects %}
+            <a href="#{{ project.slug }}" title="{{ project.title }}" aria-label="{{ project.title }}">{{ loop.index }}</a>
+            {% endfor %}
+          </span>
+        </nav>
       </div>
     </div>
   </section>
