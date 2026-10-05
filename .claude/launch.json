@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "baseline", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8101", "--directory", "/private/tmp/claude-501/-Users-andreasbraendhaugen-Projects-ambwork/8fb8d395-763d-48c0-83b0-2f27a772aa60/scratchpad/baseline"], "port": 8101 },
+    { "name": "site", "runtimeExecutable": "python3", "runtimeArgs": ["serve.py", "8102"], "port": 8102 }
+  ]
+}
