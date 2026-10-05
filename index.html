@@ -104,14 +104,34 @@ img, video {
   margin: 0 auto;
 }
 
+/* The intro fills exactly one screen, so no project peeks in below it */
 .hero {
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
   padding: 0 var(--gutter);
   background: linear-gradient(#eee, #fff);
 }
 
+.hero .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* The 'Projects' link sits halfway between the end of the text and the
+   bottom of the screen; the minimum height keeps it clear of both */
+.hero-next {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 120px;
+}
+
 .hero .text {
-  padding-top: var(--section-spacing);
-  padding-bottom: calc(var(--section-spacing) * 2);
+  padding-top: min(var(--section-spacing), 22vh);
+  padding-bottom: 0;
 }
 
 main {
@@ -303,26 +323,79 @@ main {
   text-align: center;
 }
 
-/* Down arrow */
+/* Down arrow with 'projects' label; the arrow nudges downward every few seconds */
 
 .down-arrow {
-  position: absolute;
-  bottom: var(--section-spacing);
-  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.down-arrow-icon {
   width: 30px;
   height: 30px;
   background: url("imgs/down-arrow.png") no-repeat 50% 50% / 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .down-arrow {
-    animation: arrow-down 5s infinite ease;
+  .down-arrow-icon {
+    animation: nudge 4.5s ease-in-out 1.5s infinite;
   }
 }
 
-@keyframes arrow-down {
-  0%, 60%, 100% { transform: translateY(-15px); }
-  30% { transform: translateY(0); }
+@keyframes nudge {
+  0%, 22%, 100% { transform: translateY(0); }
+  6% { transform: translateY(8px); }
+  12% { transform: translateY(0); }
+  17% { transform: translateY(4px); }
+}
+
+/* Small numbered circles after 'Projects', sized to match its text */
+
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-size: 80%;
+}
+
+.hero-numbers {
+  display: flex;
+  gap: 4px;
+}
+
+.hero-numbers a {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: rgba(107, 109, 112, .5);
+  text-decoration: none;
+  transition: color .4s, background-color .4s;
+}
+
+/* Tighter on phones so the numbers stay on the same line as 'Projects' */
+@media (max-width: 420px) {
+  .hero-nav {
+    column-gap: 10px;
+  }
+
+  .hero-numbers {
+    gap: 2px;
+  }
+
+  .hero-numbers a {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.hero-numbers a:hover {
+  background-color: rgba(107, 109, 112, .2);
+  color: rgba(107, 109, 112, .5);
 }
 
 /* Project numbers in the left margin, only where there is room for them */
@@ -368,7 +441,14 @@ main {
   transition: color .4s, background-color .4s;
 }
 
-.toc a.active {
+/* Hover shows the selected circle but keeps the number's colour */
+.toc a:hover {
+  background-color: rgba(107, 109, 112, .2);
+  color: rgba(107, 109, 112, .5);
+}
+
+.toc a.active,
+.toc a.active:hover {
   background-color: rgba(107, 109, 112, .2);
   color: var(--dark);
 }
@@ -406,7 +486,28 @@ main {
         <p class="fadein delay-2">Product designer making software that shakes up categories, attracts loyal users, and creates successful exits. I’ve helped build products that have won Apple Design Awards, an IxDA award and a Webby, and four were acquired: Pulse, Bureau of Trade, Lever and Streamlit. Today I’m at Snowflake, helping data scientists and analysts get actionable insights from their company’s data.</p>
         <small class="fadein delay-3">You can find me on <a href="https://x.com/andreasmb">X</a>, <a href="https://www.linkedin.com/in/andreasmb/">LinkedIn</a>, or <a href="https://vimeo.com/andreasmb">Vimeo</a>.</small>
       </div>
-      <a class="down-arrow fadein delay-3" href="#lever" aria-label="Jump to projects"></a>
+      <div class="hero-next">
+        <nav class="hero-nav fadein delay-3" aria-label="Projects">
+          <a class="down-arrow" href="#lever"><span class="down-arrow-icon" aria-hidden="true"></span>Projects</a>
+          <span class="hero-numbers">
+            
+            <a href="#lever" title="Lever" aria-label="Lever">1</a>
+            
+            <a href="#pulse" title="Pulse Newsreader" aria-label="Pulse Newsreader">2</a>
+            
+            <a href="#practice-fusion" title="Practice Fusion for iPad" aria-label="Practice Fusion for iPad">3</a>
+            
+            <a href="#bureau-of-trade" title="Bureau of Trade" aria-label="Bureau of Trade">4</a>
+            
+            <a href="#chrome-for-a-cause" title="Chrome for a Cause" aria-label="Chrome for a Cause">5</a>
+            
+            <a href="#dschool" title="D.school Website" aria-label="D.school Website">6</a>
+            
+            <a href="#profitable-colors" title="Profitable Colors" aria-label="Profitable Colors">7</a>
+            
+          </span>
+        </nav>
+      </div>
     </div>
   </section>
 
